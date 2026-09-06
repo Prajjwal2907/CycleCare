@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nourish — Craving Alternative</title>
+
+  <link rel="stylesheet" href="style1.css">
+  <link rel="stylesheet" href="style2.css">
+</head>
+
+<body class="auth-page">
+
+  <main class="auth-container craving-container">
+    <section class="auth-card">
+
+      <!-- Header -->
+      <div class="auth-header">
+        <p class="eyebrow">Nourish</p>
+        <h1>Craving Something?</h1>
+        <p>Tell us what you're craving, we'll find a better-for-you version.</p>
+      </div>
+
+      <!-- Input Form -->
+      <div class="form-group">
+        <label for="craving-input">What are you craving?</label>
+        <input type="text" id="craving-input" placeholder="e.g. pizza, chocolate, fries">
+      </div>
+
+      <button type="button" class="auth-button" id="find-alternative-btn">Find Alternative</button>
+
+      <!-- Result Card (Hidden by default) -->
+      <div id="result-card" class="result-card hidden">
+        <div class="result-header">
+          <h3 id="result-title" class="result-title"></h3>
+        </div>
+        <p id="result-desc" class="result-desc"></p>
+        <span id="diet-tag" class="diet-tag"></span>
+      </div>
+
+      <!-- Back Link -->
+      <a href="dashboard.html" class="back-home">← Back to Dashboard</a>
+
+    </section>
+  </main>
+
+  <script src="craving.js"></script>
+</body>
+</html>

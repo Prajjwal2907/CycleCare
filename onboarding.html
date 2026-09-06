@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nourish - Complete Your Profile</title>
+
+  <!-- EXISTING STYLESHEETS — DO NOT MODIFY -->
+  <link rel="stylesheet" href="style1.css">
+  <link rel="stylesheet" href="style2.css">
+</head>
+
+<body class="auth-page">
+
+  <main class="auth-container onboarding-container">
+    <section class="auth-card">
+
+      <!-- Header -->
+      <div class="auth-header">
+        <p class="eyebrow">Nourish</p>
+
+        <h1>Complete Your Profile</h1>
+
+        <p>
+          Just a few details to personalize your experience.
+        </p>
+      </div>
+
+
+      <!-- Onboarding Form -->
+      <form
+        id="onboarding-form"
+        class="auth-form"
+        novalidate
+      >
+
+        <!-- Full Name -->
+        <div class="form-group">
+          <label for="onboarding-full-name">
+            Full Name
+          </label>
+
+          <input
+            type="text"
+            id="onboarding-full-name"
+            placeholder="Your full name"
+          >
+
+          <small
+            class="error-message"
+            id="onboarding-full-name-error"
+          ></small>
+        </div>
+
+
+        <!-- Age -->
+        <div class="form-group">
+          <label for="onboarding-age">
+            Age
+          </label>
+
+          <input
+            type="number"
+            id="onboarding-age"
+            min="1"
+            placeholder="Your age"
+          >
+
+          <small
+            class="error-message"
+            id="onboarding-age-error"
+          ></small>
+        </div>
+
+
+        <!-- =========================
+             PATIENT FIELDS
+             ========================= -->
+
+        <div
+          id="onboarding-patient-fields"
+          class="onboarding-profile-section"
+        >
+
+          <!-- Weight -->
+          <div class="form-group">
+
+            <label for="onboarding-weight">
+              Weight
+            </label>
+
+            <div class="onboarding-unit-field">
+
+              <input
+                type="number"
+                id="onboarding-weight"
+                min="1"
+                placeholder="Your weight"
+              >
+
+              <div
+                class="onboarding-unit-toggle"
+                aria-label="Weight unit"
+              >
+
+                <button
+                  type="button"
+                  class="onboarding-unit-button onboarding-unit-selected"
+                  data-onboarding-unit-group="weight"
+                >
+                  kg
+                </button>
+
+                <button
+                  type="button"
+                  class="onboarding-unit-button"
+                  data-onboarding-unit-group="weight"
+                >
+                  lbs
+                </button>
+
+              </div>
+
+            </div>
+
+            <small
+              class="error-message"
+              id="onboarding-weight-error"
+            ></small>
+
+          </div>
+
+
+          <!-- Height -->
+          <div class="form-group">
+
+            <label for="onboarding-height">
+              Height
+            </label>
+
+            <div class="onboarding-unit-field">
+
+              <input
+                type="number"
+                id="onboarding-height"
+                min="1"
+                placeholder="Your height"
+              >
+
+              <div
+                class="onboarding-unit-toggle"
+                aria-label="Height unit"
+              >
+
+                <button
+                  type="button"
+                  class="onboarding-unit-button onboarding-unit-selected"
+                  data-onboarding-unit-group="height"
+                >
+                  cm
+                </button>
+
+                <button
+                  type="button"
+                  class="onboarding-unit-button"
+                  data-onboarding-unit-group="height"
+                >
+                  ft-in
+                </button>
+
+              </div>
+
+            </div>
+
+            <small
+              class="error-message"
+              id="onboarding-height-error"
+            ></small>
+
+          </div>
+
+
+          <!-- Dietary Preference -->
+          <div class="onboarding-diet-selector">
+
+            <p class="onboarding-diet-title">
+              Dietary Preference
+            </p>
+
+            <div class="onboarding-diet-options">
+
+              <!-- Vegetarian -->
+              <button
+                type="button"
+                class="onboarding-diet-option"
+                data-onboarding-diet="Vegetarian"
+              >
+                <span class="onboarding-diet-option-title">
+                  Vegetarian
+                </span>
+              </button>
+
+
+              <!-- Non-Vegetarian -->
+              <button
+                type="button"
+                class="onboarding-diet-option"
+                data-onboarding-diet="Non-Vegetarian"
+              >
+                <span class="onboarding-diet-option-title">
+                  Non-Vegetarian
+                </span>
+              </button>
+
+
+              <!-- Mixed -->
+              <button
+                type="button"
+                class="onboarding-diet-option"
+                data-onboarding-diet="Mixed"
+              >
+                <span class="onboarding-diet-option-title">
+                  Mixed
+                </span>
+
+                <span class="onboarding-diet-option-subtitle">
+                  veg on specific days
+                </span>
+              </button>
+
+            </div>
+
+            <small
+              class="error-message"
+              id="onboarding-diet-error"
+            ></small>
+
+          </div>
+
+        </div>
+
+
+        <!-- =========================
+             DOCTOR FIELDS
+             ========================= -->
+
+        <div
+          id="onboarding-doctor-fields"
+          class="onboarding-profile-section hidden"
+        >
+
+          <!-- Specialization -->
+          <div class="form-group">
+
+            <label for="onboarding-specialization">
+              Specialization
+            </label>
+
+            <input
+              type="text"
+              id="onboarding-specialization"
+              placeholder="Your specialization"
+            >
+
+            <small
+              class="error-message"
+              id="onboarding-specialization-error"
+            ></small>
+
+          </div>
+
+
+          <!-- Experience -->
+          <div class="form-group">
+
+            <label for="onboarding-experience">
+              Years of Experience
+            </label>
+
+            <input
+              type="number"
+              id="onboarding-experience"
+              min="0"
+              placeholder="Years of experience"
+            >
+
+            <small
+              class="error-message"
+              id="onboarding-experience-error"
+            ></small>
+
+          </div>
+
+        </div>
+
+
+        <!-- Continue -->
+        <button
+          type="submit"
+          class="auth-button"
+        >
+          Continue
+        </button>
+
+      </form>
+
+
+      <!-- Back to Home -->
+      <a
+        href="index.html"
+        class="back-home"
+      >
+        ← Back to home
+      </a>
+
+    </section>
+  </main>
+ 
+
+  <!-- ONBOARDING JAVASCRIPT -->
+  <script src="onboarding.js"></script>
+
+</body>
+</html>

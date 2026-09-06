@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nourish — Manage Doctor Access</title>
+
+  <link rel="stylesheet" href="style1.css">
+  <link rel="stylesheet" href="style2.css">
+</head>
+
+<body class="auth-page">
+
+  <main class="auth-container consent-container">
+    <section class="auth-card">
+
+      <!-- Header -->
+      <div class="auth-header">
+        <p class="eyebrow">Nourish</p>
+        <h1>Manage Doctor Access</h1>
+        <p>Control who can view your health data.</p>
+      </div>
+
+      <!-- Doctor List -->
+      <div class="doctor-list">
+        
+        <!-- Doctor 1 (Access Granted) -->
+        <div class="doctor-card" data-doctor-name="Sharma">
+          <div class="doctor-header">
+            <div class="doctor-info">
+              <h3>Dr. Sharma</h3>
+              <p>Endocrinologist</p>
+            </div>
+            <div class="toggle-wrapper">
+              <span class="toggle-label" id="label-sharma">Access Granted</span>
+              <label class="switch">
+                <input type="checkbox" class="access-toggle" checked data-target-label="label-sharma" data-target-msg="msg-sharma">
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+          <p class="access-status-text" id="msg-sharma">Dr. Sharma can now view your tracked health data.</p>
+        </div>
+
+        <!-- Doctor 2 (No Access) -->
+        <div class="doctor-card" data-doctor-name="Miller">
+          <div class="doctor-header">
+            <div class="doctor-info">
+              <h3>Dr. Miller</h3>
+              <p>General Practitioner</p>
+            </div>
+            <div class="toggle-wrapper">
+              <span class="toggle-label" id="label-miller">No Access</span>
+              <label class="switch">
+                <input type="checkbox" class="access-toggle" data-target-label="label-miller" data-target-msg="msg-miller">
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+          <p class="access-status-text revoked" id="msg-miller">Dr. Miller no longer has access to your data.</p>
+        </div>
+
+      </div>
+
+      <!-- Add Doctor Section -->
+      <div class="add-doctor-section">
+        <button type="button" class="auth-button" id="show-add-doctor-btn">Add Doctor</button>
+        
+        <div class="add-doctor-form hidden" id="add-doctor-form">
+          <div class="form-group">
+            <label for="doctor-code">Doctor Code or Email</label>
+            <input type="text" id="doctor-code" placeholder="Enter provider code or email">
+          </div>
+          <button type="button" class="auth-button inline-btn btn-forest" id="submit-doctor-btn">Send Request</button>
+        </div>
+      </div>
+
+      <!-- Back Link -->
+      <a href="dashboard.html" class="back-home">← Back to Dashboard</a>
+
+    </section>
+  </main>
+
+  <script src="consent.js"></script>
+</body>
+</html>

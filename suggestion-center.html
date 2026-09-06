@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nourish — Suggestion Center</title>
+
+  <link rel="stylesheet" href="style1.css">
+  <link rel="stylesheet" href="style2.css">
+</head>
+
+<body class="auth-page">
+
+  <main class="auth-container suggestion-container">
+    <section class="auth-card">
+
+      <!-- Header -->
+      <div class="auth-header">
+        <p class="eyebrow">Nourish</p>
+        <h1>Suggestion Center</h1>
+        <p>Review AI-generated suggestions and add your own for patients.</p>
+      </div>
+
+      <!-- Patient Selector -->
+      <div class="form-group">
+        <label for="patient-select">Select Patient</label>
+        <select id="patient-select">
+          <option value="priya">Priya Sharma</option>
+          <option value="anjali">Anjali Verma</option>
+        </select>
+      </div>
+
+      <!-- AI Suggestions -->
+      <div class="suggestion-list" id="ai-suggestions">
+        
+        <!-- Card 1 -->
+        <article class="suggestion-card">
+          <div class="suggestion-header">
+            <p class="suggestion-text">Increase water intake — patient's hydration logs show low intake this week.</p>
+            <span class="badge-approved">Approved ✓</span>
+          </div>
+          <div class="suggestion-actions">
+            <button type="button" class="auth-button btn-forest btn-action btn-approve">Approve</button>
+            <button type="button" class="auth-button btn-outline-grey btn-action btn-dismiss">Dismiss</button>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="suggestion-card">
+          <div class="suggestion-header">
+            <p class="suggestion-text">Consider shifting evening exercise to the morning to improve deep sleep cycles.</p>
+            <span class="badge-approved">Approved ✓</span>
+          </div>
+          <div class="suggestion-actions">
+            <button type="button" class="auth-button btn-forest btn-action btn-approve">Approve</button>
+            <button type="button" class="auth-button btn-outline-grey btn-action btn-dismiss">Dismiss</button>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="suggestion-card">
+          <div class="suggestion-header">
+            <p class="suggestion-text">Add iron-rich foods to meals this week based on the current logged cycle phase.</p>
+            <span class="badge-approved">Approved ✓</span>
+          </div>
+          <div class="suggestion-actions">
+            <button type="button" class="auth-button btn-forest btn-action btn-approve">Approve</button>
+            <button type="button" class="auth-button btn-outline-grey btn-action btn-dismiss">Dismiss</button>
+          </div>
+        </article>
+
+      </div>
+
+      <hr class="section-divider">
+
+      <!-- Add Custom Suggestion -->
+      <div class="custom-section">
+        <h3>Add Custom Suggestion</h3>
+        <div class="form-group">
+          <textarea id="custom-suggestion-text" rows="4" placeholder="Write a personalized suggestion..."></textarea>
+        </div>
+        <!-- Standard coral button -->
+        <button type="button" class="auth-button" id="send-suggestion-btn">Send to Patient</button>
+      </div>
+
+      <!-- Sent Suggestions (Hidden initially using existing style2.css class) -->
+      <div class="sent-section hidden" id="sent-section">
+        <h3>Sent Suggestions</h3>
+        <div class="sent-list" id="sent-list">
+          <!-- Dynamically added DOM elements go here -->
+        </div>
+      </div>
+
+      <!-- Back Link -->
+      <a href="doctor-dashboard.html" class="back-home">← Back to Dashboard</a>
+
+    </section>
+  </main>
+
+  <script src="suggestion-center.js"></script>
+</body>
+</html>
