@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nourish — Dashboard</title>
+
+  <link rel="stylesheet" href="style1.css">
+  <link rel="stylesheet" href="style2.css">
+</head>
+
+<body class="dashboard-page">
+
+  <!-- Top Nav -->
+  <nav class="dashboard-nav">
+    <div class="container dashboard-nav__inner">
+      <span class="dashboard-nav__brand">Nourish</span>
+      <div class="dashboard-nav__links">
+        <a href="#">Profile</a>
+        <a href="index.html">Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="dashboard-main">
+    <div class="container">
+
+      <!-- Welcome -->
+      <h1 class="dashboard-welcome">Welcome back, Priya</h1>
+      <p class="dashboard-subtext">Here's a quick look at your health journey today.</p>
+
+      <!-- Quick Actions -->
+      <div class="quick-actions">
+        <a href="cycle-tracker.html" class="auth-button quick-action-btn">Log Cycle Entry</a>
+        <a href="craving.html" class="auth-button quick-action-btn">Craving? Get an Alternative</a>
+        <a href="consent.html" class="auth-button btn-forest quick-action-btn">Manage Doctor Access</a>
+      </div>
+
+      <!-- Summary Cards -->
+      <div class="dashboard-grid">
+
+        <!-- Cycle Tracking -->
+        <div class="dash-card">
+          <h3>Cycle Tracking</h3>
+          <p class="dash-card__value">Next predicted: <strong>12 days</strong></p>
+          <a href="cycle-tracker.html" class="dash-card__link">View cycle log →</a>
+        </div>
+
+        <!-- Sleep -->
+        <div class="dash-card dash-card--not-connected">
+          <h3>Sleep</h3>
+          <p class="dash-card__status">Not connected</p>
+          <button type="button" class="auth-button btn-forest dash-card__connect-btn" data-connect="sleep">Connect Wearable</button>
+        </div>
+
+        <!-- Exercise -->
+        <div class="dash-card dash-card--not-connected">
+          <h3>Exercise</h3>
+          <p class="dash-card__status">Not connected</p>
+          <button type="button" class="auth-button btn-forest dash-card__connect-btn" data-connect="exercise">Connect Wearable</button>
+        </div>
+
+        <!-- AI Insights -->
+        <div class="dash-card">
+          <h3>AI Insights</h3>
+          <p class="dash-card__value">Your sleep has been consistent this week — keep it up!</p>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

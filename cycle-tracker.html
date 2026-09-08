@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nourish — Log Your Cycle</title>
+
+  <link rel="stylesheet" href="style1.css">
+  <link rel="stylesheet" href="style2.css">
+</head>
+
+<body class="auth-page">
+
+  <main class="auth-container">
+    <section class="auth-card">
+
+      <!-- Header -->
+      <div class="auth-header">
+        <p class="eyebrow">Nourish</p>
+        <h1>Log Your Cycle</h1>
+        <p>Track your cycle to get personalized insights.</p>
+      </div>
+
+      <!-- Form -->
+      <form id="cycle-form" class="auth-form" novalidate>
+
+        <!-- Start Date -->
+        <div class="form-group">
+          <label for="start-date">Cycle Start Date</label>
+          <input type="date" id="start-date" required>
+          <small class="error-message" id="start-date-error"></small>
+        </div>
+
+        <!-- End Date -->
+        <div class="form-group">
+          <label for="end-date">Cycle End Date</label>
+          <input type="date" id="end-date" required>
+          <small class="error-message" id="end-date-error"></small>
+        </div>
+
+        <!-- Flow Intensity (Reusing role-option pattern) -->
+        <div class="role-selector">
+          <p class="role-title">Flow Intensity</p>
+
+          <div class="role-options flow-options">
+
+            <button type="button" class="role-option flow-option" data-flow="Light">
+              <span class="role-option-title">Light</span>
+            </button>
+
+            <button type="button" class="role-option flow-option" data-flow="Normal">
+              <span class="role-option-title">Normal</span>
+            </button>
+
+            <button type="button" class="role-option flow-option" data-flow="Heavy">
+              <span class="role-option-title">Heavy</span>
+            </button>
+
+          </div>
+        </div>
+
+        <!-- Symptoms (Multi-select tags) -->
+        <div class="form-group">
+          <label>Symptoms</label>
+
+          <div class="symptoms-container">
+            <div class="symptom-tag" data-symptom="Cramps">Cramps</div>
+            <div class="symptom-tag" data-symptom="Bloating">Bloating</div>
+            <div class="symptom-tag" data-symptom="Fatigue">Fatigue</div>
+            <div class="symptom-tag" data-symptom="Mood swings">Mood swings</div>
+            <div class="symptom-tag" data-symptom="Headache">Headache</div>
+            <div class="symptom-tag" data-symptom="Other">Other</div>
+          </div>
+        </div>
+
+        <!-- Summary Box -->
+        <div class="cycle-summary">
+          <p>
+            Cycle Duration:
+            <strong id="cycle-duration">--</strong>
+            <strong>days</strong>
+          </p>
+
+          <p>
+            Days until next predicted cycle:
+            <strong id="next-cycle-days">--</strong>
+          </p>
+        </div>
+
+        <!-- Save Button -->
+        <button type="submit" class="auth-button">Save Entry</button>
+        <p class="form-success" id="form-success"></p>
+
+      </form>
+
+      <!-- Back Link -->
+      <a href="dashboard.html" class="back-home">← Back to dashboard</a>
+
+    </section>
+  </main>
+
+  <script src="cycle-tracker.js"></script>
+</body>
+</html>

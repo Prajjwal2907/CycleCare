@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nourish — Login & Sign Up</title>
+
+  <!-- Same stylesheet as the landing page -->
+  <link rel="stylesheet" href="style1.css">
+  <link rel="stylesheet" href="style2.css">
+</head>
+ 
+<body class="auth-page">
+
+  <main class="auth-container">
+    <section class="auth-card">
+
+      <!-- Header -->
+      <div class="auth-header">
+        <p class="eyebrow">Nourish</p>
+
+        <h1 id="auth-title">Welcome Back</h1>
+
+        <p id="auth-subtitle">
+          Log in to continue your health journey.
+        </p>
+      </div>
+
+
+      <!-- Login / Sign Up tabs -->
+      <div class="auth-tabs">
+        <button
+          type="button"
+          class="auth-tab active"
+          id="login-tab"
+        >
+          Login
+        </button>
+
+        <button
+          type="button"
+          class="auth-tab"
+          id="signup-tab"
+        >
+          Sign Up
+        </button>
+      </div>
+
+
+      <!-- =========================
+           LOGIN FORM
+           ========================= -->
+
+      <form id="login-form" class="auth-form" novalidate>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="login-email">Email</label>
+
+          <input
+            type="email"
+            id="login-email"
+            placeholder="you@example.com"
+          >
+
+          <small
+            class="error-message"
+            id="login-email-error"
+          ></small>
+        </div>
+
+
+        <!-- Password -->
+        <div class="form-group">
+          <label for="login-password">Password</label>
+
+          <input
+            type="password"
+            id="login-password"
+            placeholder="Enter your password"
+          >
+
+          <small
+            class="error-message"
+            id="login-password-error"
+          ></small>
+        </div>
+
+
+        <!-- Forgot Password -->
+        <div class="forgot-password">
+          <a href="#">Forgot password?</a>
+        </div>
+
+
+        <!-- Login button -->
+        <button
+          type="submit"
+          class="auth-button"
+        >
+          Login
+        </button>
+
+        <p
+          class="form-success"
+          id="login-success"
+        ></p>
+
+      </form>
+
+
+      <!-- =========================
+           SIGN UP FORM
+           ========================= -->
+
+      <form
+        id="signup-form"
+        class="auth-form hidden"
+        novalidate
+      >
+
+        <!-- ROLE SELECTOR -->
+        <div class="role-selector">
+
+          <p class="role-title">
+            Signing up as
+          </p>
+
+          <div class="role-options">
+
+            <button
+              type="button"
+              class="role-option"
+              data-role="Patient"
+            >
+              <span class="role-option-title">
+                Patient
+              </span>
+
+              <span class="role-option-subtitle">
+                Manage my health & nutrition
+              </span>
+            </button>
+
+
+            <button
+              type="button"
+              class="role-option"
+              data-role="Doctor"
+            >
+              <span class="role-option-title">
+                Doctor
+              </span>
+
+              <span class="role-option-subtitle">
+                Guide and monitor patients
+              </span>
+            </button>
+
+          </div>
+
+          <small
+            class="error-message"
+            id="signup-role-error"
+          ></small>
+
+        </div>
+
+
+        <!-- Name -->
+        <div class="form-group">
+          <label for="signup-name">Name</label>
+
+          <input
+            type="text"
+            id="signup-name"
+            placeholder="Your name"
+          >
+
+          <small
+            class="error-message"
+            id="signup-name-error"
+          ></small>
+        </div>
+
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="signup-email">Email</label>
+
+          <input
+            type="email"
+            id="signup-email"
+            placeholder="you@example.com"
+          >
+
+          <small
+            class="error-message"
+            id="signup-email-error"
+          ></small>
+        </div>
+
+
+        <!-- Password -->
+        <div class="form-group">
+          <label for="signup-password">Password</label>
+
+          <input
+            type="password"
+            id="signup-password"
+            placeholder="Create a password"
+          >
+
+          <small
+            class="error-message"
+            id="signup-password-error"
+          ></small>
+        </div>
+
+
+        <!-- Confirm Password -->
+        <div class="form-group">
+          <label for="signup-confirm-password">
+            Confirm Password
+          </label>
+
+          <input
+            type="password"
+            id="signup-confirm-password"
+            placeholder="Confirm your password"
+          >
+
+          <small
+            class="error-message"
+            id="signup-confirm-password-error"
+          ></small>
+        </div>
+
+
+        <!-- Sign Up button -->
+        <button
+          type="submit"
+          class="auth-button"
+        >
+          Create Account
+        </button>
+
+        <p
+          class="form-success"
+          id="signup-success"
+        ></p>
+
+      </form>
+
+
+      <!-- Back to home -->
+      <a
+        href="index.html"
+        class="back-home"
+      >
+        ← Back to home
+      </a>
+
+    </section>
+  </main>
+
+
+  <script src="login.js"></script>
+
+</body>
+</html>

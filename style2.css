@@ -1,0 +1,1445 @@
+/* =========================================================
+   NOURISH LOGIN / SIGN UP PAGE
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   AUTH PAGE
+   --------------------------------------------------------- */
+
+.auth-page {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 2rem 1rem;
+
+  background: var(--cream);
+}
+
+
+/* Main container */
+
+.auth-container {
+  width: 100%;
+  max-width: 420px;
+}
+
+
+/* Card */
+
+.auth-card {
+  width: 100%;
+
+  padding: 2.5rem;
+
+  background: #ffffff;
+
+  border-radius: 1.25rem;
+
+  box-shadow:
+    0 18px 45px rgba(43, 43, 43, 0.10);
+}
+
+
+/* ---------------------------------------------------------
+   HEADER
+   --------------------------------------------------------- */
+
+.auth-header {
+  text-align: center;
+
+  margin-bottom: 1.75rem;
+}
+
+.auth-header .eyebrow {
+  margin: 0 0 0.5rem;
+
+  color: var(--forest);
+
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  font-size: 0.78rem;
+}
+
+.auth-header h1 {
+  margin: 0 0 0.5rem;
+
+  color: var(--charcoal);
+
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+}
+
+.auth-header p:last-child {
+  margin: 0;
+
+  color: rgba(43, 43, 43, 0.7);
+
+  line-height: 1.5;
+}
+
+
+/* ---------------------------------------------------------
+   LOGIN / SIGN UP TABS
+   --------------------------------------------------------- */
+
+.auth-tabs {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 0.25rem;
+
+  padding: 0.25rem;
+
+  margin-bottom: 1.75rem;
+
+  background: var(--cream);
+
+  border-radius: 999px;
+}
+
+.auth-tab {
+  border: none;
+
+  padding: 0.7rem 1rem;
+
+  border-radius: 999px;
+
+  background: transparent;
+
+  color: var(--forest);
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 1rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.auth-tab.active {
+  background: var(--forest);
+
+  color: var(--cream);
+}
+
+.auth-tab:hover:not(.active) {
+  background: rgba(31, 107, 76, 0.08);
+}
+
+
+/* ---------------------------------------------------------
+   FORM
+   --------------------------------------------------------- */
+
+.auth-form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 0.4rem;
+}
+
+.form-group label {
+  color: var(--charcoal);
+
+  font-weight: 700;
+}
+
+.form-group input {
+  width: 100%;
+
+  padding: 0.85rem 1rem;
+
+  border: 1.5px solid rgba(43, 43, 43, 0.15);
+
+  border-radius: 0.75rem;
+
+  background: #ffffff;
+
+  color: var(--charcoal);
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 1rem;
+
+  outline: none;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.form-group input:focus {
+  border-color: var(--forest);
+
+  box-shadow:
+    0 0 0 3px rgba(31, 107, 76, 0.12);
+}
+
+.form-group input::placeholder {
+  color: rgba(43, 43, 43, 0.45);
+}
+
+
+/* ---------------------------------------------------------
+   FORGOT PASSWORD
+   --------------------------------------------------------- */
+
+.forgot-password {
+  text-align: right;
+
+  margin-top: -0.25rem;
+}
+
+.forgot-password a {
+  color: var(--berry);
+
+  font-size: 0.9rem;
+
+  text-decoration: none;
+}
+
+.forgot-password a:hover {
+  text-decoration: underline;
+}
+
+
+/* ---------------------------------------------------------
+   ROLE SELECTOR
+   --------------------------------------------------------- */
+
+.role-selector {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 0.5rem;
+}
+
+.role-title {
+  margin: 0;
+
+  color: var(--charcoal);
+
+  font-weight: 700;
+}
+
+
+/* Patient / Doctor cards */
+
+.role-options {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 0.75rem;
+}
+
+.role-option {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 90px;
+
+  padding: 0.9rem;
+
+  border: 2px solid #eadbc8;
+
+  border-radius: 0.9rem;
+
+  background: #eadbc8;
+
+  color: var(--charcoal);
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  text-align: center;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.2s ease;
+}
+
+.role-option:hover {
+  transform: translateY(-2px);
+
+  border-color: var(--forest);
+}
+
+.role-option.selected {
+  background: var(--forest);
+
+  border-color: var(--forest);
+
+  color: #ffffff;
+}
+
+.role-option-title {
+  display: block;
+
+  margin-bottom: 0.25rem;
+
+  font-size: 1rem;
+
+  font-weight: 700;
+}
+
+.role-option-subtitle {
+  display: block;
+
+  font-size: 0.75rem;
+
+  line-height: 1.3;
+
+  opacity: 0.8;
+}
+
+
+/* ---------------------------------------------------------
+   AUTH BUTTON
+   --------------------------------------------------------- */
+
+.auth-button {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+
+  min-height: 3.15rem;
+
+  margin-top: 0.35rem;
+
+  padding: 0.85rem 1.5rem;
+
+  border: none;
+
+  border-radius: 999px;
+
+  background: var(--coral);
+
+  color: #ffffff;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 1.05rem;
+
+  font-weight: 700;
+
+  text-align: center;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 12px 25px rgba(255, 107, 91, 0.25);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.auth-button:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 15px 30px rgba(255, 107, 91, 0.35);
+}
+
+.auth-button:active {
+  transform: scale(0.98);
+}
+
+
+/* ---------------------------------------------------------
+   ERROR MESSAGES
+   --------------------------------------------------------- */
+
+.error-message {
+  display: block;
+
+  min-height: 1rem;
+
+  margin: 0;
+
+  color: var(--berry);
+
+  font-size: 0.82rem;
+
+  line-height: 1.3;
+}
+
+
+/* ---------------------------------------------------------
+   SUCCESS MESSAGE
+   --------------------------------------------------------- */
+
+.form-success {
+  min-height: 1rem;
+
+  margin: 0;
+
+  color: var(--forest);
+
+  text-align: center;
+
+  font-size: 0.9rem;
+}
+
+
+/* ---------------------------------------------------------
+   BACK TO HOME
+   --------------------------------------------------------- */
+
+.back-home {
+  display: block;
+
+  margin-top: 1.5rem;
+
+  color: var(--forest);
+
+  font-weight: 700;
+
+  text-align: center;
+
+  text-decoration: none;
+}
+
+.back-home:hover {
+  text-decoration: underline;
+}
+
+
+/* ---------------------------------------------------------
+   HIDDEN
+   --------------------------------------------------------- */
+
+.hidden {
+  display: none;
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 480px) {
+
+  .auth-card {
+    padding: 2rem 1.25rem;
+  }
+
+  .role-options {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+/* =========================================================
+   ONBOARDING PAGE
+   Add this section at the bottom of style2.css
+   All class names are onboarding-specific to avoid conflicts
+   with the existing login/signup styles.
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   ONBOARDING CONTAINER
+   --------------------------------------------------------- */
+
+.onboarding-container {
+  max-width: 520px;
+}
+
+
+/* ---------------------------------------------------------
+   PROFILE SECTIONS
+   --------------------------------------------------------- */
+
+.onboarding-profile-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.onboarding-profile-section.hidden {
+  display: none;
+}
+
+/* ---------------------------------------------------------
+   UNIT FIELD
+   --------------------------------------------------------- */
+
+.onboarding-unit-field {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+
+/* ---------------------------------------------------------
+   UNIT TOGGLE
+   --------------------------------------------------------- */
+
+.onboarding-unit-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.2rem;
+
+  padding: 0.2rem;
+
+  border-radius: 999px;
+
+  background: var(--cream);
+}
+
+
+/* Unit buttons */
+
+.onboarding-unit-button {
+  min-width: 3rem;
+
+  border: none;
+  border-radius: 999px;
+
+  padding: 0.55rem 0.75rem;
+
+  background: transparent;
+  color: var(--forest);
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+
+/* Hover */
+
+.onboarding-unit-button:hover {
+  background: rgba(31, 107, 76, 0.08);
+}
+
+
+/* Selected unit */
+
+.onboarding-unit-button.onboarding-unit-selected {
+  background: var(--forest);
+  color: var(--cream);
+}
+
+
+/* ---------------------------------------------------------
+   DIETARY PREFERENCE
+   --------------------------------------------------------- */
+
+.onboarding-diet-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+
+/* Title */
+
+.onboarding-diet-title {
+  margin: 0;
+
+  color: var(--charcoal);
+
+  font-weight: 700;
+}
+
+
+/* Options */
+
+.onboarding-diet-options {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+
+/* Individual dietary card */
+
+.onboarding-diet-option {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 72px;
+
+  padding: 0.9rem;
+
+  border: 2px solid #eadbc8;
+  border-radius: 0.9rem;
+
+  background: #eadbc8;
+  color: var(--charcoal);
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  text-align: center;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.2s ease;
+}
+
+
+/* Hover */
+
+.onboarding-diet-option:hover {
+  transform: translateY(-2px);
+
+  border-color: var(--forest);
+}
+
+
+/* Selected */
+
+.onboarding-diet-option.onboarding-diet-selected {
+  background: var(--forest);
+
+  border-color: var(--forest);
+
+  color: #ffffff;
+}
+
+
+/* Option title */
+
+.onboarding-diet-option-title {
+  display: block;
+
+  margin-bottom: 0.25rem;
+
+  font-size: 1rem;
+
+  font-weight: 700;
+}
+
+
+/* Option subtitle */
+
+.onboarding-diet-option-subtitle {
+  display: block;
+
+  font-size: 0.75rem;
+
+  line-height: 1.3;
+
+  opacity: 0.8;
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 480px) {
+
+  .onboarding-unit-field {
+    grid-template-columns: 1fr;
+  }
+
+  .onboarding-unit-toggle {
+    width: fit-content;
+  }
+
+}
+
+/* =========================================================
+   MANAGE DOCTOR ACCESS (CONSENT PAGE) STYLES
+   ========================================================= */
+
+.consent-container {
+  max-width: 540px;
+}
+
+.doctor-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.doctor-card {
+  border: 1px solid rgba(43, 43, 43, 0.1);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  background: #fafafa;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.doctor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.doctor-info h3 {
+  margin: 0 0 0.25rem 0;
+  color: var(--charcoal);
+  font-size: 1.2rem;
+}
+
+.doctor-info p {
+  margin: 0;
+  color: rgba(43, 43, 43, 0.7);
+  font-size: 0.9rem;
+}
+
+/* Toggle Switch Styling */
+.toggle-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.toggle-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--charcoal);
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 26px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .3s ease;
+  border-radius: 26px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .3s ease;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+input:checked + .slider {
+  background-color: var(--forest);
+}
+
+input:checked + .slider:before {
+  transform: translateX(22px);
+}
+
+/* Status Confirmation Text */
+.access-status-text {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--forest);
+  font-style: italic;
+  padding-top: 0.5rem;
+  border-top: 1px dashed rgba(43, 43, 43, 0.15);
+}
+
+.access-status-text.revoked {
+  color: var(--berry);
+}
+
+/* Add Doctor Section */
+.add-doctor-section {
+  border-top: 2px solid rgba(43, 43, 43, 0.05);
+  padding-top: 1.5rem;
+  margin-top: 1rem;
+}
+
+.add-doctor-form {
+  margin-top: 1rem;
+  gap: 0.5rem;
+  flex-direction: column;
+}
+
+.add-doctor-form.visible {
+  display: flex;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Button utility classes */
+.inline-btn {
+  margin-top: 0;
+  padding: 0.85rem 1rem;
+}
+
+.auth-button.btn-forest {
+  background: var(--forest);
+  box-shadow: none;
+}
+
+.auth-button.btn-submitting {
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================================
+   SUGGESTION CENTER STYLES
+   ========================================================= */
+
+.suggestion-container {
+  max-width: 600px;
+}
+
+/* Extend existing form styles for select and textarea */
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1.5px solid rgba(43, 43, 43, 0.15);
+  border-radius: 0.75rem;
+  background: #ffffff;
+  color: var(--charcoal);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  resize: vertical;
+}
+
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--forest);
+  box-shadow: 0 0 0 3px rgba(31, 107, 76, 0.12);
+}
+
+/* AI Suggestions List & Cards */
+.suggestion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.suggestion-card {
+  border: 1px solid rgba(43, 43, 43, 0.1);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  background: #fafafa;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: opacity 0.3s ease;
+}
+
+.suggestion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.suggestion-text {
+  margin: 0;
+  color: var(--charcoal);
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.suggestion-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* Card Button Utilities */
+.btn-action {
+  margin-top: 0;
+  min-height: auto;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  box-shadow: none;
+  width: auto;
+}
+
+.btn-outline-grey {
+  background: transparent;
+  border: 1.5px solid rgba(43, 43, 43, 0.2);
+  color: rgba(43, 43, 43, 0.7);
+  box-shadow: none;
+}
+
+.btn-outline-grey:hover {
+  background: rgba(43, 43, 43, 0.05);
+  border-color: rgba(43, 43, 43, 0.4);
+  transform: none;
+}
+
+/* Badge & States */
+.badge-approved {
+  display: none;
+  color: var(--forest);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  background: rgba(31, 107, 76, 0.12);
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.suggestion-card.is-approved .badge-approved {
+  display: inline-block;
+}
+
+.suggestion-card.is-approved .btn-action {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.suggestion-card.is-dismissed {
+  display: none;
+}
+
+/* Custom Suggestion Section */
+.section-divider {
+  border: none;
+  border-top: 1px dashed rgba(43, 43, 43, 0.15);
+  margin: 2rem 0;
+}
+
+.custom-section h3,
+.sent-section h3 {
+  margin: 0 0 1rem 0;
+  color: var(--charcoal);
+  font-size: 1.25rem;
+}
+
+.sent-section {
+  margin-top: 2rem;
+}
+
+.sent-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sent-card {
+  border-left: 4px solid var(--coral);
+  padding: 1rem;
+  background: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(43, 43, 43, 0.05);
+  animation: fadeIn 0.3s ease;
+}
+
+.sent-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--charcoal);
+  line-height: 1.5;
+}
+
+/* =========================================================
+   CRAVING ALTERNATIVE STYLES
+   ========================================================= */
+
+.craving-container {
+  max-width: 500px;
+}
+
+/* Result Card Formatting */
+.result-card {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: #fafafa;
+  border: 1px solid rgba(43, 43, 43, 0.1);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  animation: fadeIn 0.4s ease;
+}
+
+.result-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.result-title {
+  margin: 0;
+  color: var(--berry);
+  font-size: 1.3rem;
+}
+
+.result-desc {
+  margin: 0;
+  color: var(--charcoal);
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+/* Dietary Tag (Pill Shape) */
+.diet-tag {
+  display: inline-block;
+  background: rgba(31, 107, 76, 0.12);
+  color: var(--forest);
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  align-self: flex-start;
+  letter-spacing: 0.02em;
+}
+
+/* =========================================================
+   MOBILE RESPONSIVE PASS (320px - 600px)
+   ========================================================= */
+
+@media (max-width: 480px) {
+  .auth-page {
+    padding: 1rem 0.5rem;
+  }
+
+  .auth-card {
+    padding: 1.5rem 1rem;
+    border-radius: 1rem;
+  }
+
+  .auth-header h1 {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+
+  /* Compact padding for all inner cards on mobile */
+  .dash-card, 
+  .patient-card, 
+  .doctor-card, 
+  .suggestion-card, 
+  .result-card, 
+  .inner-card {
+    padding: 1rem;
+  }
+
+  /* Stack quick actions and suggestion action buttons full-width */
+  .quick-actions, 
+  .suggestion-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .quick-actions .auth-button, 
+  .suggestion-actions .auth-button, 
+  .btn-action {
+    width: 100%;
+  }
+
+  /* Ensure all inputs and buttons meet 44px+ touch targets */
+  .auth-button, 
+  input[type="text"], 
+  input[type="email"], 
+  input[type="password"], 
+  input[type="number"], 
+  input[type="date"], 
+  select, 
+  textarea {
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Collapse multi-column grids below 600px */
+  .details-grid,
+  .dashboard-grid,
+  .role-options,
+  .flow-options {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Stack patient summary card layouts on mobile */
+  .patient-summary {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 1rem;
+  }
+
+  .patient-summary .action-btn {
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   CYCLE TRACKER STYLES
+   ========================================================= */
+
+.symptoms-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.25rem;
+}
+
+.symptom-tag {
+  padding: 0.5rem 1rem;
+  border: 1.5px solid rgba(43, 43, 43, 0.15);
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--charcoal);
+  font-size: 0.9rem;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.symptom-tag:hover {
+  border-color: var(--forest);
+}
+
+.symptom-tag.selected {
+  background: var(--forest);
+  border-color: var(--forest);
+  color: #ffffff;
+}
+
+.cycle-summary {
+  background: var(--cream);
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  border: 1px dashed rgba(43, 43, 43, 0.2);
+  margin-top: 0.5rem;
+}
+
+.cycle-summary p {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.95rem;
+  color: var(--charcoal);
+}
+
+.cycle-summary p:last-child {
+  margin: 0;
+}
+
+.cycle-summary strong {
+  color: var(--forest);
+  font-weight: 700;
+}
+
+/* Flow options: three items */
+.flow-options {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* =========================================================
+   DASHBOARD PAGES (patient + doctor)
+   ========================================================= */
+
+.dashboard-page {
+  min-height: 100vh;
+  background: var(--cream);
+}
+
+/* ---------------------------------------------------------
+   NAV
+   --------------------------------------------------------- */
+
+.dashboard-nav {
+  background: #ffffff;
+  border-bottom: 1px solid rgba(43, 43, 43, 0.08);
+}
+
+.dashboard-nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 0;
+}
+
+.dashboard-nav__brand {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--forest);
+}
+
+.dashboard-nav__links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.dashboard-nav__links a {
+  color: var(--charcoal);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.dashboard-nav__links a:hover {
+  color: var(--forest);
+  text-decoration: underline;
+}
+
+/* ---------------------------------------------------------
+   MAIN / WELCOME
+   --------------------------------------------------------- */
+
+.dashboard-main {
+  padding: 2.5rem 0 4rem;
+}
+
+.dashboard-welcome {
+  margin: 0 0 0.4rem;
+  font-size: clamp(1.7rem, 4vw, 2.3rem);
+  color: var(--charcoal);
+}
+
+.dashboard-subtext {
+  margin: 0 0 1.75rem;
+  color: rgba(43, 43, 43, 0.7);
+}
+
+/* ---------------------------------------------------------
+   QUICK ACTIONS
+   --------------------------------------------------------- */
+
+.quick-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-bottom: 2.25rem;
+}
+
+.quick-action-btn {
+  width: auto;
+  min-height: auto;
+  padding: 0.85rem 1.5rem;
+  text-decoration: none;
+}
+
+/* ---------------------------------------------------------
+   PATIENT DASHBOARD GRID
+   --------------------------------------------------------- */
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.dash-card {
+  background: #ffffff;
+  border-radius: 1.25rem;
+  padding: 1.4rem 1.5rem;
+  box-shadow: 0 12px 30px rgba(43, 43, 43, 0.08);
+}
+
+.dash-card h3 {
+  margin: 0 0 0.6rem;
+  color: var(--berry);
+  font-size: 1.05rem;
+}
+
+.dash-card__value {
+  margin: 0;
+  color: var(--charcoal);
+  line-height: 1.5;
+}
+
+.dash-card__link {
+  display: inline-block;
+  margin-top: 0.6rem;
+  color: var(--forest);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.dash-card__link:hover {
+  text-decoration: underline;
+}
+
+.dash-card__status {
+  margin: 0 0 0.85rem;
+  color: rgba(43, 43, 43, 0.55);
+  font-style: italic;
+}
+
+.dash-card__connect-btn {
+  width: auto;
+  min-height: auto;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  box-shadow: none;
+}
+
+/* ---------------------------------------------------------
+   DOCTOR DASHBOARD — PATIENT LIST
+   --------------------------------------------------------- */
+
+.patient-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.patient-card {
+  background: #ffffff;
+  border-radius: 1.25rem;
+  padding: 1.4rem 1.6rem;
+  box-shadow: 0 12px 30px rgba(43, 43, 43, 0.08);
+}
+
+.patient-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.patient-info {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.patient-info h3 {
+  margin: 0;
+  color: var(--charcoal);
+  font-size: 1.1rem;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.status-badge--granted {
+  background: rgba(31, 107, 76, 0.12);
+  color: var(--forest);
+}
+
+.status-badge--awaiting {
+  background: rgba(43, 43, 43, 0.08);
+  color: rgba(43, 43, 43, 0.6);
+}
+
+.action-btn {
+  width: auto;
+  min-height: auto;
+  padding: 0.65rem 1.3rem;
+  font-size: 0.9rem;
+  box-shadow: none;
+}
+
+.action-btn:disabled {
+  background: rgba(43, 43, 43, 0.15);
+  color: rgba(43, 43, 43, 0.5);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.patient-details {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px dashed rgba(43, 43, 43, 0.15);
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.inner-card {
+  background: var(--cream);
+  border-radius: 0.85rem;
+  padding: 1rem;
+}
+
+.inner-card h4 {
+  margin: 0 0 0.3rem;
+  color: var(--berry);
+  font-size: 0.9rem;
+}
+
+.inner-card p {
+  margin: 0;
+  color: var(--charcoal);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 600px) {
+  .patient-summary {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .action-btn {
+    width: 100%;
+  }
+}

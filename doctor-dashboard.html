@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nourish — Doctor Dashboard</title>
+
+  <link rel="stylesheet" href="style1.css">
+  <link rel="stylesheet" href="style2.css">
+</head>
+
+<body class="dashboard-page">
+
+  <!-- Top Nav -->
+  <nav class="dashboard-nav">
+    <div class="container dashboard-nav__inner">
+      <span class="dashboard-nav__brand">Nourish</span>
+      <div class="dashboard-nav__links">
+        <a href="#">Profile</a>
+        <a href="index.html">Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="dashboard-main">
+    <div class="container">
+
+      <!-- Welcome -->
+      <h1 class="dashboard-welcome">Welcome, Dr. Sharma</h1>
+      <p class="dashboard-subtext">Review your patients and manage suggestions.</p>
+
+      <!-- Quick Action -->
+      <div class="quick-actions">
+        <a href="suggestion-center.html" class="auth-button quick-action-btn">Suggestion Center</a>
+      </div>
+
+      <!-- Patient List -->
+      <div class="patient-list">
+
+        <!-- Patient 1 — Access Granted -->
+        <div class="patient-card">
+          <div class="patient-summary">
+            <div class="patient-info">
+              <h3>Priya Sharma</h3>
+              <span class="status-badge status-badge--granted">Access Granted</span>
+            </div>
+            <button type="button" class="auth-button action-btn" data-patient="priya">View Dashboard</button>
+          </div>
+          <div class="patient-details details-grid hidden" id="details-priya">
+            <div class="inner-card">
+              <h4>Cycle</h4>
+              <p>Day 14 of cycle · Next predicted in 12 days</p>
+            </div>
+            <div class="inner-card">
+              <h4>Sleep</h4>
+              <p>Avg 7h 10m over the last week</p>
+            </div>
+            <div class="inner-card">
+              <h4>Exercise</h4>
+              <p>4 sessions logged this week</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Patient 2 — Access Granted -->
+        <div class="patient-card">
+          <div class="patient-summary">
+            <div class="patient-info">
+              <h3>Anjali Verma</h3>
+              <span class="status-badge status-badge--granted">Access Granted</span>
+            </div>
+            <button type="button" class="auth-button action-btn" data-patient="anjali">View Dashboard</button>
+          </div>
+          <div class="patient-details details-grid hidden" id="details-anjali">
+            <div class="inner-card">
+              <h4>Cycle</h4>
+              <p>Day 3 of cycle · Next predicted in 25 days</p>
+            </div>
+            <div class="inner-card">
+              <h4>Sleep</h4>
+              <p>Avg 6h 40m over the last week</p>
+            </div>
+            <div class="inner-card">
+              <h4>Exercise</h4>
+              <p>2 sessions logged this week</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Patient 3 — Awaiting Consent -->
+        <div class="patient-card">
+          <div class="patient-summary">
+            <div class="patient-info">
+              <h3>Neha Kapoor</h3>
+              <span class="status-badge status-badge--awaiting">Awaiting Consent</span>
+            </div>
+            <button type="button" class="auth-button action-btn" disabled>View Dashboard</button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <script src="doctor-dashboard.js"></script>
+</body>
+</html>
