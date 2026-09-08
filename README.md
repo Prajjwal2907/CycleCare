@@ -33,6 +33,12 @@ For a complete local stack, run `docker compose up --build` from the repository 
 
 Backend-specific setup, environment variables, tests, and API details are documented in [backend/README.md](backend/README.md).
 
+## Manuals
+
+- [User Manual](docs/USER_MANUAL.md) — patient and doctor workflows, consent, suggestions, and troubleshooting.
+- [Operations Manual](docs/OPERATIONS_MANUAL.md) — local startup, Docker, database, tests, ML training, and Android setup.
+- [Privacy and Data Architecture](docs/privacy-data-architecture.md) — storage boundaries and security requirements.
+
 ## Status
 
 🚧 Actively under development — currently scaffolding project structure and core services.
