@@ -64,9 +64,12 @@ document.addEventListener("DOMContentLoaded", function () {
         
         durationDisplay.textContent = diffDays;
         
-        // Placeholder prediction logic (Assuming a standard 28-day cycle)
-        const predictedNext = 28 - diffDays;
-        nextCycleDisplay.textContent = predictedNext > 0 ? predictedNext : 0;
+        nextCycleDisplay.textContent = "...";
+        CycleCareAPI.cycleSummary()
+          .then((summary) => {
+            nextCycleDisplay.textContent = summary.days_until_next_cycle ?? "--";
+          })
+          .catch(() => { nextCycleDisplay.textContent = "--"; });
         return;
       }
     }
@@ -121,9 +124,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Success State
     if (isValid) {
-      document.getElementById("form-success").textContent = "Cycle entry successfully saved!";
-      
-      // Developer note: selectedFlow and Array.from(selectedSymptoms) are ready to be sent to a backend here.
+      const button = form.querySelector('button[type="submit"]');
+      button.disabled = true;
+      button.textContent = "Saving...";
+      CycleCareAPI.createCycle({
+        start_date: startDate,
+        end_date: endDate,
+        flow_intensity: (selectedFlow || "Normal").toLowerCase(),
+        symptoms: Array.from(selectedSymptoms).map((symptom) => symptom.toLowerCase())
+      })
+        .then((entry) => {
+          durationDisplay.textContent = entry.cycle_duration;
+          document.getElementById("form-success").textContent = "Cycle entry saved.";
+          return CycleCareAPI.cycleSummary();
+        })
+        .then((summary) => { nextCycleDisplay.textContent = summary.days_until_next_cycle ?? "--"; })
+        .catch((error) => setError("end-date-error", error.message))
+        .finally(() => {
+          button.disabled = false;
+          button.textContent = "Save Entry";
+        });
     }
   });
+
+  if (CycleCareAPI.isAuthenticated()) {
+    CycleCareAPI.cycleSummary().then((summary) => {
+      nextCycleDisplay.textContent = summary.days_until_next_cycle ?? "--";
+    }).catch(() => {});
+  }
 });

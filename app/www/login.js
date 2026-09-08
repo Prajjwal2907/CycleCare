@@ -204,12 +204,20 @@ loginForm.addEventListener("submit", function (event) {
   // Success
   if (valid) {
 
-    document.getElementById(
-      "login-success"
-    ).textContent =
-      "Login details look good!";
-
-    setTimeout(() => window.location.href = "dashboard.html", 800);
+    const button = loginForm.querySelector('button[type="submit"]');
+    button.disabled = true;
+    button.textContent = "Signing in...";
+    CycleCareAPI.login({ email, password })
+      .then((data) => {
+        CycleCareAPI.setSession(data);
+        document.getElementById("login-success").textContent = "Signed in successfully.";
+        window.location.href = data.user.role === "doctor" ? "doctor-dashboard.html" : "dashboard.html";
+      })
+      .catch((error) => setError("login-password-error", error.message))
+      .finally(() => {
+        button.disabled = false;
+        button.textContent = "Login";
+      });
 
   }
 
@@ -345,15 +353,25 @@ signupForm.addEventListener("submit", function (event) {
 
   if (valid) {
 
-    document.getElementById(
-      "signup-success"
-    ).textContent =
-      `Account details look good! Role selected: ${selectedRole}`;
-
-    // Placeholder for future backend integration
-    console.log("Selected role:", selectedRole);
-
-    setTimeout(() => window.location.href = "onboarding.html", 800);
+    const button = signupForm.querySelector('button[type="submit"]');
+    button.disabled = true;
+    button.textContent = "Creating account...";
+    CycleCareAPI.register({
+      email,
+      password,
+      full_name: name,
+      role: selectedRole.toLowerCase()
+    })
+      .then((data) => {
+        CycleCareAPI.setSession(data);
+        localStorage.setItem("cyclecare_onboarding_role", selectedRole.toLowerCase());
+        window.location.href = "onboarding.html";
+      })
+      .catch((error) => setError("signup-email-error", error.message))
+      .finally(() => {
+        button.disabled = false;
+        button.textContent = "Create Account";
+      });
 
   }
 

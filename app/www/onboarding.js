@@ -13,7 +13,7 @@
 // "Patient" = patient onboarding
 // "Doctor"  = doctor onboarding
 
-const userRole = "Patient";
+const userRole = (localStorage.getItem("cyclecare_onboarding_role") || CycleCareAPI.getUser()?.role || "patient").toLowerCase();
 
 
 /* ---------------------------------------------------------
@@ -95,7 +95,7 @@ function isOnboardingEmpty(id) {
 
 function showOnboardingRoleFields() {
 
-  if (userRole === "Doctor") {
+  if (userRole === "doctor") {
 
     doctorFields.classList.remove("hidden");
 
@@ -254,7 +254,7 @@ onboardingForm.addEventListener(
        DOCTOR
        ----------------------------------------------------- */
 
-    if (userRole === "Doctor") {
+    if (userRole === "doctor") {
 
       /* Specialization */
 
@@ -358,17 +358,37 @@ onboardingForm.addEventListener(
 
     if (valid) {
 
-      if (userRole === "Doctor") {
-
-        window.location.href =
-          "doctor-dashboard.html";
-
-      } else {
-
-        window.location.href =
-          "dashboard.html";
-
-      }
+        const button = onboardingForm.querySelector('button[type="submit"]');
+        button.disabled = true;
+        button.textContent = "Saving...";
+        const payload = {
+          full_name: document.getElementById("onboarding-full-name").value.trim(),
+          age: Number(document.getElementById("onboarding-age").value)
+        };
+        if (userRole === "doctor") {
+          payload.specialization = document.getElementById("onboarding-specialization").value.trim();
+          payload.years_of_experience = Number(document.getElementById("onboarding-experience").value);
+        } else {
+          const dietMap = {
+            Vegetarian: "vegetarian",
+            "Non-Vegetarian": "non_vegetarian",
+            Mixed: "non_veg_with_veg_days"
+          };
+          payload.weight = Number(document.getElementById("onboarding-weight").value);
+          payload.height = Number(document.getElementById("onboarding-height").value);
+          payload.dietary_preference = dietMap[selectedDiet];
+        }
+        CycleCareAPI.profile(payload)
+          .then((profile) => {
+            localStorage.setItem("cyclecare_profile", JSON.stringify(profile));
+            localStorage.removeItem("cyclecare_onboarding_role");
+            window.location.href = userRole === "doctor" ? "doctor-dashboard.html" : "dashboard.html";
+          })
+          .catch((error) => setOnboardingError("onboarding-full-name-error", error.message))
+          .finally(() => {
+            button.disabled = false;
+            button.textContent = "Continue";
+          });
     }
   }
 );

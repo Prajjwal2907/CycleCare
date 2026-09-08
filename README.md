@@ -16,7 +16,7 @@ cyclecare/
 
 - **`app/`** — The CycleCare mobile app, wrapped natively via [Capacitor](https://capacitorjs.com/). The web UI (HTML/CSS/JS) lives in `app/www`, alongside the generated native Android and iOS project shells.
 - **`backend/`** — Core API server built with **Django + Django REST Framework**, backed by **PostgreSQL**. Handles authentication, onboarding, cycle tracking, consent management, doctor dashboards, and the suggestion center.
-- **`ml-service/`** — AI/ML microservice built with **FastAPI**. Hosts the food-recognition model, cycle-length prediction, the craving → healthier-alternative engine, and the AI-suggestion generator consumed by the backend's Suggestion Center.
+- **`ml-service/`** — AI/ML microservice built with **FastAPI**. Hosts cycle-length prediction, the craving → healthier-alternative engine, and the AI-suggestion generator consumed by the backend's Suggestion Center.
 - **`docs/`** — Product overview and feature specs for the platform.
 
 ## Prerequisites
@@ -29,7 +29,9 @@ cyclecare/
 
 ## Getting Started
 
-_Setup instructions for each service will be added here as they're scaffolded._
+For a complete local stack, run `docker compose up --build` from the repository root. The backend API is available at `http://localhost:8000`, the OpenAPI UI at `http://localhost:8000/api/docs/`, and the ML service health check at `http://localhost:8001/health/`.
+
+Backend-specific setup, environment variables, tests, and API details are documented in [backend/README.md](backend/README.md).
 
 ## Status
 

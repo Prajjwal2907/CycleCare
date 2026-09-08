@@ -1,9 +1,67 @@
-smoking_driking_dataset_Ver01.csv
+# Python & Virtual Environments
 __pycache__/
-*.pyc
-.env.*
-.DS_Store
-.vscode/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+backend/venv/
+backend/venv/*
+**/venv/
+**/env/
+
+# Environment Variables & Secrets (NEVER COMMIT)
 .env
+.env.*
+*.env
+!.env.example
+secrets/
+*.pem
+*.key
+*.cert
+*.crt
+*.pfx
+*.p12
+*.pkcs12
+id_rsa*
+id_ed25519*
+*.pub
+credentials*.json
+client_secret*.json
+service_account*.json
+
+# Databases & Cache
+*.sqlite3
+*.db
+db.sqlite3
+
+# Django & Media Uploads
+media/
+backend/media/
+static_root/
+staticfiles/
+ml-service/artifacts/
+
+# Logs & Temporary Files
+*.log
+local_settings.py
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Node & Frontend
 node_modules/
-backend\venv
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+smoking_driking_dataset_Ver01.csv
+
+# IDEs & System Files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
