@@ -1,48 +1,74 @@
 /* =========================================================
-   NOURISH LOGIN / SIGN UP PAGE
+   NOURISH - PREMIUM GLASSMORPHISM APPLICATION STYLES (style2.css)
+   Contains styles for Auth, Onboarding, Dashboards, and Tools
    ========================================================= */
 
-
 /* ---------------------------------------------------------
-   AUTH PAGE
+   GLOBAL AUTH / APPLICATION PAGE LAYOUT
    --------------------------------------------------------- */
 
 .auth-page {
   min-height: 100vh;
-
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: clamp(1.5rem, 4vh, 3.5rem) 1.25rem;
+  position: relative;
+  overflow-y: auto;
 
-  padding: 2rem 1rem;
-
-  background: var(--cream);
+  background:
+    radial-gradient(ellipse 80% 50% at 15% 20%, rgba(255, 107, 91, 0.08), transparent 50%),
+    radial-gradient(ellipse 60% 50% at 85% 70%, rgba(255, 107, 91, 0.05), transparent 50%),
+    radial-gradient(ellipse 50% 80% at 50% 100%, rgba(122, 32, 72, 0.05), transparent 60%),
+    linear-gradient(135deg, rgba(255, 245, 235, 0.3) 0%, rgba(255, 232, 214, 0.3) 30%, rgba(255, 215, 196, 0.3) 60%, rgba(255, 200, 184, 0.3) 100%),
+    url('https://plain-apac-prod-public.komododecks.com/202609/08/TSaIsQe61444tRy9ik2O/image.png');
+  background-attachment: fixed;
+  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, cover;
+  background-position: center;
 }
-
-
-/* Main container */
 
 .auth-container {
   width: 100%;
-  max-width: 420px;
+  max-width: 460px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
-
-/* Card */
+/* ---------------------------------------------------------
+   ELEVATED GLASS CARD - PREMIUM TRANSPARENT GLASSMORPHISM
+   --------------------------------------------------------- */
 
 .auth-card {
   width: 100%;
+  padding: clamp(2rem, 5vw, 3rem);
 
-  padding: 2.5rem;
+  /* Highly transparent white background - medical image clearly visible */
+  background: rgba(255, 255, 255, 0.3);
 
-  background: #ffffff;
+  /* Minimal blur - just enough for glass effect, medical background remains sharp */
+  backdrop-filter: blur(6px) saturate(110%);
+  -webkit-backdrop-filter: blur(6px) saturate(110%);
 
-  border-radius: 1.25rem;
+  /* Thin elegant semi-transparent white border */
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius-xl);
 
+  /* Soft shadow for card separation from background */
   box-shadow:
-    0 18px 45px rgba(43, 43, 43, 0.10);
+    0 8px 32px rgba(31, 38, 135, 0.1),
+    0 4px 16px rgba(0, 0, 0, 0.06);
+
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.auth-card:hover {
+  background: rgba(255, 255, 255, 0.35);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow:
+    0 12px 40px rgba(31, 38, 135, 0.12),
+    0 6px 20px rgba(0, 0, 0, 0.08);
+}
 
 /* ---------------------------------------------------------
    HEADER
@@ -50,539 +76,461 @@
 
 .auth-header {
   text-align: center;
-
-  margin-bottom: 1.75rem;
+  margin-bottom: 2rem;
 }
 
 .auth-header .eyebrow {
-  margin: 0 0 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0 0 0.85rem;
+  padding: 0.4rem 1rem;
 
-  color: var(--forest);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), inset 0 1px 1px rgba(255, 255, 255, 0.4);
 
-  letter-spacing: 0.16em;
+  color: var(--coral);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-
-  font-size: 0.78rem;
+  font-size: 0.75rem;
+  font-weight: 700;
 }
 
 .auth-header h1 {
   margin: 0 0 0.5rem;
-
   color: var(--charcoal);
-
-  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  font-size: clamp(1.65rem, 4vw, 2.25rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
 }
 
 .auth-header p:last-child {
   margin: 0;
-
-  color: rgba(43, 43, 43, 0.7);
-
+  color: var(--charcoal-muted);
+  font-size: 0.95rem;
+  font-weight: 500;
   line-height: 1.5;
 }
 
-
 /* ---------------------------------------------------------
-   LOGIN / SIGN UP TABS
+   LOGIN / SIGN UP SEGMENTED TABS - LIQUID GLASS
    --------------------------------------------------------- */
 
 .auth-tabs {
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
-  gap: 0.25rem;
-
-  padding: 0.25rem;
-
+  gap: 0.35rem;
+  padding: 0.4rem;
   margin-bottom: 1.75rem;
 
-  background: var(--cream);
-
-  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(30px) saturate(200%);
+  -webkit-backdrop-filter: blur(30px) saturate(200%);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  border-radius: var(--radius-pill);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.3), 0 4px 16px rgba(0, 0, 0, 0.04);
 }
 
 .auth-tab {
   border: none;
-
-  padding: 0.7rem 1rem;
-
-  border-radius: 999px;
-
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-pill);
   background: transparent;
-
-  color: var(--forest);
-
-  font-family: Georgia, "Times New Roman", serif;
-
-  font-size: 1rem;
-  font-weight: 700;
-
+  color: var(--charcoal-muted);
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
   cursor: pointer;
-
-  transition:
-    background 0.25s ease,
-    color 0.25s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .auth-tab.active {
-  background: var(--forest);
-
-  color: var(--cream);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  color: var(--coral);
+  font-weight: 700;
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.08),
+    0 1px 3px rgba(0, 0, 0, 0.05),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8);
 }
 
 .auth-tab:hover:not(.active) {
-  background: rgba(31, 107, 76, 0.08);
+  color: var(--charcoal);
+  background: rgba(255, 255, 255, 0.18);
 }
 
-
 /* ---------------------------------------------------------
-   FORM
+   FORM CONTROLS & INPUTS - LIQUID GLASS
    --------------------------------------------------------- */
 
 .auth-form {
   display: flex;
-
   flex-direction: column;
-
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .form-group {
   display: flex;
-
   flex-direction: column;
-
-  gap: 0.4rem;
+  gap: 0.45rem;
+  text-align: left;
 }
 
 .form-group label {
   color: var(--charcoal);
-
-  font-weight: 700;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
-.form-group input {
+.form-group input,
+.form-group select,
+.form-group textarea {
   width: 100%;
-
-  padding: 0.85rem 1rem;
-
-  border: 1.5px solid rgba(43, 43, 43, 0.15);
-
-  border-radius: 0.75rem;
-
-  background: #ffffff;
-
+  padding: 0.88rem 1.2rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(28px) saturate(200%);
+  -webkit-backdrop-filter: blur(28px) saturate(200%);
   color: var(--charcoal);
-
-  font-family: Georgia, "Times New Roman", serif;
-
-  font-size: 1rem;
-
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
   outline: none;
-
-  transition:
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.form-group input:focus {
-  border-color: var(--forest);
-
   box-shadow:
-    0 0 0 3px rgba(31, 107, 76, 0.12);
+    inset 0 1px 2px rgba(255, 255, 255, 0.4),
+    0 2px 8px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.form-group input::placeholder {
-  color: rgba(43, 43, 43, 0.45);
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--charcoal-subtle);
+  font-weight: 400;
 }
 
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  background: rgba(255, 255, 255, 0.5);
+  border-color: rgba(255, 107, 91, 0.6);
+  box-shadow:
+    0 0 0 4px rgba(255, 107, 91, 0.2),
+    0 8px 24px rgba(31, 38, 135, 0.08),
+    inset 0 1px 1.5px rgba(255, 255, 255, 0.6);
+}
+
+.form-group input[type="date"] {
+  min-height: 48px;
+  cursor: pointer;
+}
 
 /* ---------------------------------------------------------
-   FORGOT PASSWORD
+   FORGOT PASSWORD & TEXT LINKS
    --------------------------------------------------------- */
 
 .forgot-password {
   text-align: right;
-
-  margin-top: -0.25rem;
+  margin-top: -0.5rem;
 }
 
 .forgot-password a {
-  color: var(--berry);
-
-  font-size: 0.9rem;
-
+  color: var(--coral);
+  font-size: 0.85rem;
+  font-weight: 600;
   text-decoration: none;
+  transition: all 0.2s ease;
 }
 
 .forgot-password a:hover {
+  color: var(--coral-light);
   text-decoration: underline;
+  text-shadow: 0 0 12px var(--coral-glow);
 }
 
-
 /* ---------------------------------------------------------
-   ROLE SELECTOR
+   ROLE SELECTOR TILES - LIQUID GLASS
    --------------------------------------------------------- */
 
 .role-selector {
   display: flex;
-
   flex-direction: column;
-
-  gap: 0.5rem;
+  gap: 0.65rem;
 }
 
 .role-title {
   margin: 0;
-
   color: var(--charcoal);
-
-  font-weight: 700;
+  font-size: 0.88rem;
+  font-weight: 600;
 }
-
-
-/* Patient / Doctor cards */
 
 .role-options {
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
-  gap: 0.75rem;
+  gap: 0.85rem;
 }
 
 .role-option {
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
   justify-content: center;
+  min-height: 96px;
+  padding: 1rem 0.85rem;
 
-  min-height: 90px;
-
-  padding: 0.9rem;
-
-  border: 2px solid #eadbc8;
-
-  border-radius: 0.9rem;
-
-  background: #eadbc8;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(28px) saturate(200%);
+  -webkit-backdrop-filter: blur(28px) saturate(200%);
 
   color: var(--charcoal);
-
-  font-family: Georgia, "Times New Roman", serif;
-
+  font-family: inherit;
   text-align: center;
-
   cursor: pointer;
-
-  transition:
-    background 0.25s ease,
-    border-color 0.25s ease,
-    color 0.25s ease,
-    transform 0.2s ease;
+  box-shadow:
+    0 4px 16px rgba(31, 38, 135, 0.05),
+    inset 0 1px 1.5px rgba(255, 255, 255, 0.5);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .role-option:hover {
   transform: translateY(-2px);
-
-  border-color: var(--forest);
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0 8px 24px rgba(31, 38, 135, 0.1),
+    inset 0 1px 1.5px rgba(255, 255, 255, 0.7);
 }
 
 .role-option.selected {
-  background: var(--forest);
-
-  border-color: var(--forest);
-
+  background: linear-gradient(135deg, rgba(255, 122, 107, 0.85) 0%, rgba(255, 92, 74, 0.85) 100%);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border-color: rgba(255, 255, 255, 0.6);
   color: #ffffff;
+  box-shadow:
+    0 8px 24px var(--coral-glow),
+    inset 0 1px 1.5px rgba(255, 255, 255, 0.5);
 }
 
 .role-option-title {
   display: block;
-
   margin-bottom: 0.25rem;
-
-  font-size: 1rem;
-
+  font-size: 1.05rem;
   font-weight: 700;
 }
 
 .role-option-subtitle {
   display: block;
-
-  font-size: 0.75rem;
-
-  line-height: 1.3;
-
-  opacity: 0.8;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  opacity: 0.85;
 }
 
-
 /* ---------------------------------------------------------
-   AUTH BUTTON
+   PRIMARY & ACTION BUTTONS - LIQUID GLASS
    --------------------------------------------------------- */
 
 .auth-button {
-  display: flex;
-
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-
+  gap: 0.5rem;
   width: 100%;
-
-  min-height: 3.15rem;
-
+  min-height: 3.35rem;
   margin-top: 0.35rem;
+  padding: 0.85rem 1.75rem;
 
-  padding: 0.85rem 1.5rem;
-
-  border: none;
-
-  border-radius: 999px;
-
-  background: var(--coral);
-
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, rgba(255, 122, 107, 0.85) 0%, rgba(255, 92, 74, 0.85) 100%);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
   color: #ffffff;
 
-  font-family: Georgia, "Times New Roman", serif;
-
-  font-size: 1.05rem;
-
+  font-family: inherit;
+  font-size: 1rem;
   font-weight: 700;
-
+  letter-spacing: -0.01em;
   text-align: center;
-
+  text-decoration: none;
   cursor: pointer;
 
   box-shadow:
-    0 12px 25px rgba(255, 107, 91, 0.25);
-
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+    0 8px 24px rgba(255, 107, 91, 0.35),
+    0 4px 12px rgba(255, 107, 91, 0.2),
+    inset 0 1px 2px rgba(255, 255, 255, 0.5);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-
 .auth-button:hover {
-  transform: translateY(-1px);
-
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, rgba(255, 142, 130, 0.9) 0%, rgba(255, 107, 91, 0.9) 100%);
   box-shadow:
-    0 15px 30px rgba(255, 107, 91, 0.35);
+    0 12px 32px rgba(255, 107, 91, 0.45),
+    0 6px 16px rgba(255, 107, 91, 0.25),
+    inset 0 1px 2px rgba(255, 255, 255, 0.6);
 }
 
 .auth-button:active {
-  transform: scale(0.98);
+  transform: translateY(0);
 }
 
+.auth-button:focus-visible {
+  outline: 3px solid var(--coral-glow);
+  outline-offset: 3px;
+}
+
+.auth-button.btn-forest {
+  background: linear-gradient(135deg, rgba(37, 126, 91, 0.85) 0%, rgba(31, 107, 76, 0.85) 100%);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  box-shadow:
+    0 8px 24px rgba(31, 107, 76, 0.3),
+    0 4px 12px rgba(31, 107, 76, 0.18),
+    inset 0 1px 2px rgba(255, 255, 255, 0.45);
+}
+
+.auth-button.btn-forest:hover {
+  background: linear-gradient(135deg, rgba(45, 143, 104, 0.9) 0%, rgba(34, 117, 83, 0.9) 100%);
+  box-shadow:
+    0 12px 32px rgba(31, 107, 76, 0.4),
+    0 6px 16px rgba(31, 107, 76, 0.22),
+    inset 0 1px 2px rgba(255, 255, 255, 0.55);
+}
+
+.auth-button.btn-submitting {
+  opacity: 0.75;
+  pointer-events: none;
+  cursor: wait;
+}
 
 /* ---------------------------------------------------------
-   ERROR MESSAGES
+   STATUS, ERRORS & NOTIFICATIONS
    --------------------------------------------------------- */
 
 .error-message {
   display: block;
-
-  min-height: 1rem;
-
-  margin: 0;
-
-  color: var(--berry);
-
-  font-size: 0.82rem;
-
-  line-height: 1.3;
+  min-height: 1.15rem;
+  margin-top: 0.15rem;
+  color: #c92a2a;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.35;
 }
-
-
-/* ---------------------------------------------------------
-   SUCCESS MESSAGE
-   --------------------------------------------------------- */
 
 .form-success {
-  min-height: 1rem;
-
-  margin: 0;
-
-  color: var(--forest);
-
+  min-height: 1.25rem;
+  margin: 0.5rem 0 0;
+  color: var(--coral);
   text-align: center;
-
-  font-size: 0.9rem;
+  font-size: 0.92rem;
+  font-weight: 700;
 }
 
-
-/* ---------------------------------------------------------
-   BACK TO HOME
-   --------------------------------------------------------- */
-
 .back-home {
-  display: block;
-
-  margin-top: 1.5rem;
-
-  color: var(--forest);
-
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: 1.75rem;
+  width: 100%;
+  color: var(--coral);
+  font-size: 0.92rem;
   font-weight: 700;
-
   text-align: center;
-
   text-decoration: none;
+  transition: all 0.3s ease;
 }
 
 .back-home:hover {
-  text-decoration: underline;
+  color: var(--coral-light);
+  transform: translateX(-3px);
+  text-shadow: 0 0 12px var(--coral-glow);
 }
-
-
-/* ---------------------------------------------------------
-   HIDDEN
-   --------------------------------------------------------- */
 
 .hidden {
-  display: none;
-}
-
-
-/* ---------------------------------------------------------
-   MOBILE
-   --------------------------------------------------------- */
-
-@media (max-width: 480px) {
-
-  .auth-card {
-    padding: 2rem 1.25rem;
-  }
-
-  .role-options {
-    grid-template-columns: 1fr;
-  }
-
+  display: none !important;
 }
 
 /* =========================================================
-   ONBOARDING PAGE
-   Add this section at the bottom of style2.css
-   All class names are onboarding-specific to avoid conflicts
-   with the existing login/signup styles.
+   ONBOARDING FLOW
    ========================================================= */
 
-
-/* ---------------------------------------------------------
-   ONBOARDING CONTAINER
-   --------------------------------------------------------- */
-
 .onboarding-container {
-  max-width: 520px;
+  max-width: 540px;
 }
-
-
-/* ---------------------------------------------------------
-   PROFILE SECTIONS
-   --------------------------------------------------------- */
 
 .onboarding-profile-section {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.25rem;
 }
-
-.onboarding-profile-section.hidden {
-  display: none;
-}
-
-/* ---------------------------------------------------------
-   UNIT FIELD
-   --------------------------------------------------------- */
 
 .onboarding-unit-field {
   display: grid;
   grid-template-columns: 1fr auto;
-  gap: 0.65rem;
+  gap: 0.75rem;
   align-items: center;
 }
-
-
-/* ---------------------------------------------------------
-   UNIT TOGGLE
-   --------------------------------------------------------- */
 
 .onboarding-unit-toggle {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.2rem;
-
-  padding: 0.2rem;
-
-  border-radius: 999px;
-
-  background: var(--cream);
+  gap: 0.25rem;
+  padding: 0.25rem;
+  border-radius: var(--radius-pill);
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
-
-
-/* Unit buttons */
 
 .onboarding-unit-button {
-  min-width: 3rem;
-
+  min-width: 3.25rem;
   border: none;
-  border-radius: 999px;
-
-  padding: 0.55rem 0.75rem;
-
+  border-radius: var(--radius-pill);
+  padding: 0.6rem 0.85rem;
   background: transparent;
-  color: var(--forest);
-
-  font-family: Georgia, "Times New Roman", serif;
+  color: var(--charcoal-muted);
+  font-family: inherit;
+  font-size: 0.85rem;
   font-weight: 700;
-
   cursor: pointer;
-
-  transition:
-    background 0.25s ease,
-    color 0.25s ease;
+  transition: all 0.2s ease;
 }
 
-
-/* Hover */
-
-.onboarding-unit-button:hover {
-  background: rgba(31, 107, 76, 0.08);
+.onboarding-unit-button:hover:not(.onboarding-unit-selected) {
+  color: var(--charcoal);
+  background: rgba(255, 255, 255, 0.4);
 }
-
-
-/* Selected unit */
 
 .onboarding-unit-button.onboarding-unit-selected {
-  background: var(--forest);
-  color: var(--cream);
+  background: #ffffff;
+  color: var(--forest);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
-
-
-/* ---------------------------------------------------------
-   DIETARY PREFERENCE
-   --------------------------------------------------------- */
 
 .onboarding-diet-selector {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.65rem;
 }
-
-
-/* Title */
 
 .onboarding-diet-title {
   margin: 0;
-
   color: var(--charcoal);
-
-  font-weight: 700;
+  font-size: 0.88rem;
+  font-weight: 600;
 }
-
-
-/* Options */
 
 .onboarding-diet-options {
   display: grid;
@@ -590,109 +538,376 @@
   gap: 0.75rem;
 }
 
-
-/* Individual dietary card */
-
 .onboarding-diet-option {
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
   justify-content: center;
+  min-height: 74px;
+  padding: 0.85rem 1rem;
 
-  min-height: 72px;
-
-  padding: 0.9rem;
-
-  border: 2px solid #eadbc8;
-  border-radius: 0.9rem;
-
-  background: #eadbc8;
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: var(--charcoal);
-
-  font-family: Georgia, "Times New Roman", serif;
-
+  font-family: inherit;
   text-align: center;
-
   cursor: pointer;
-
-  transition:
-    background 0.25s ease,
-    border-color 0.25s ease,
-    color 0.25s ease,
-    transform 0.2s ease;
+  box-shadow: var(--glass-shadow-sm);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-
-/* Hover */
 
 .onboarding-diet-option:hover {
   transform: translateY(-2px);
-
-  border-color: var(--forest);
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: var(--glass-shadow-md);
 }
-
-
-/* Selected */
 
 .onboarding-diet-option.onboarding-diet-selected {
   background: var(--forest);
-
   border-color: var(--forest);
-
   color: #ffffff;
+  box-shadow: 0 8px 24px var(--forest-glow), inset 0 1px 1px rgba(255, 255, 255, 0.3);
 }
-
-
-/* Option title */
 
 .onboarding-diet-option-title {
   display: block;
-
-  margin-bottom: 0.25rem;
-
   font-size: 1rem;
-
   font-weight: 700;
 }
 
-
-/* Option subtitle */
-
 .onboarding-diet-option-subtitle {
   display: block;
-
-  font-size: 0.75rem;
-
-  line-height: 1.3;
-
-  opacity: 0.8;
-}
-
-
-/* ---------------------------------------------------------
-   MOBILE
-   --------------------------------------------------------- */
-
-@media (max-width: 480px) {
-
-  .onboarding-unit-field {
-    grid-template-columns: 1fr;
-  }
-
-  .onboarding-unit-toggle {
-    width: fit-content;
-  }
-
+  font-size: 0.78rem;
+  opacity: 0.85;
+  margin-top: 0.15rem;
 }
 
 /* =========================================================
-   MANAGE DOCTOR ACCESS (CONSENT PAGE) STYLES
+   DASHBOARD PAGES (Patient & Doctor)
+   ========================================================= */
+
+.dashboard-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse 80% 50% at 15% 20%, rgba(255, 107, 91, 0.08), transparent 50%),
+    radial-gradient(ellipse 60% 50% at 85% 70%, rgba(255, 107, 91, 0.05), transparent 50%),
+    radial-gradient(ellipse 50% 80% at 50% 100%, rgba(122, 32, 72, 0.05), transparent 60%),
+    linear-gradient(135deg, rgba(255, 245, 235, 0.3) 0%, rgba(255, 232, 214, 0.3) 30%, rgba(255, 215, 196, 0.3) 60%, rgba(255, 200, 184, 0.3) 100%),
+    url('https://plain-apac-prod-public.komododecks.com/202609/08/nI2Ur6kagGViI3SKTcFE/image.png');
+  background-attachment: fixed;
+  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, cover;
+  background-position: center;
+  overflow-y: auto;
+}
+
+/* Floating Glass Top Nav */
+.dashboard-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(12px) saturate(110%);
+  -webkit-backdrop-filter: blur(12px) saturate(110%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.dashboard-nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+.dashboard-nav__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--forest);
+}
+
+.dashboard-nav__links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.dashboard-nav__links a {
+  padding: 0.45rem 0.95rem;
+  border-radius: var(--radius-pill);
+  color: var(--charcoal);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.dashboard-nav__links a:hover {
+  background: rgba(31, 107, 76, 0.08);
+  color: var(--forest);
+}
+
+/* Main Dashboard Content */
+.dashboard-main {
+  padding: clamp(2rem, 5vh, 3.5rem) 0 5rem;
+}
+
+.dashboard-welcome {
+  margin: 0 0 0.35rem;
+  font-size: clamp(2rem, 4.5vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #0f291e;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9), 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-subtext {
+  margin: 0 0 2rem;
+  color: #1a2e26;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8), 0 1px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* Quick Actions Pill Bar */
+.quick-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-bottom: 2.5rem;
+}
+
+.quick-action-btn {
+  width: auto;
+  min-height: auto;
+  padding: 0.75rem 1.45rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: var(--glass-shadow-sm);
+}
+
+/* Patient Dashboard Grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.dash-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.75rem;
+
+  /* Highly transparent white background - medical image clearly visible */
+  background: rgba(255, 255, 255, 0.3);
+
+  /* Minimal blur - just enough for glass effect, medical background remains sharp */
+  backdrop-filter: blur(6px) saturate(110%);
+  -webkit-backdrop-filter: blur(6px) saturate(110%);
+
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 24px 0 rgba(31, 38, 135, 0.06), inset 0 1px 1px 0 rgba(255, 255, 255, 0.5);
+
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dash-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px 0 rgba(31, 38, 135, 0.1), inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.dash-card h3 {
+  margin: 0 0 0.75rem;
+  color: var(--berry);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.dash-card__value {
+  margin: 0;
+  color: var(--charcoal);
+  font-size: 1.05rem;
+  line-height: 1.55;
+  font-weight: 500;
+}
+
+.dash-card__value strong {
+  font-weight: 700;
+  color: var(--forest);
+}
+
+.dash-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 1.25rem;
+  color: var(--forest);
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.dash-card__link:hover {
+  color: var(--forest-light);
+  transform: translateX(3px);
+}
+
+.dash-card__status {
+  margin: 0 0 1rem;
+  color: var(--charcoal-subtle);
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+.dash-card__connect-btn {
+  width: fit-content;
+  min-height: auto;
+  padding: 0.65rem 1.25rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+/* =========================================================
+   DOCTOR DASHBOARD & PATIENT LIST
+   ========================================================= */
+
+.patient-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.patient-card {
+  padding: 1.75rem;
+  background: var(--glass-bg-elevated);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--glass-shadow-md);
+  transition: all 0.25s ease;
+}
+
+.patient-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.patient-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.patient-info h3 {
+  margin: 0;
+  color: var(--charcoal);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.status-badge--granted {
+  background: rgba(31, 107, 76, 0.12);
+  border: 1px solid rgba(31, 107, 76, 0.25);
+  color: var(--forest);
+}
+
+.status-badge--awaiting {
+  background: rgba(122, 32, 72, 0.08);
+  border: 1px solid rgba(122, 32, 72, 0.2);
+  color: var(--berry);
+}
+
+.action-btn {
+  width: auto;
+  min-height: auto;
+  padding: 0.7rem 1.35rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.action-btn:disabled {
+  background: rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 0, 0, 0.05);
+  color: var(--charcoal-subtle);
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.patient-details {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.inner-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: var(--radius-md);
+  padding: 1.2rem;
+  box-shadow: var(--glass-shadow-sm);
+}
+
+.inner-card h4 {
+  margin: 0 0 0.35rem;
+  color: var(--berry);
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.inner-card p {
+  margin: 0;
+  color: var(--charcoal);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+/* =========================================================
+   MANAGE DOCTOR ACCESS (CONSENT PAGE)
    ========================================================= */
 
 .consent-container {
-  max-width: 540px;
+  max-width: 560px;
 }
 
 .doctor-list {
@@ -703,13 +918,17 @@
 }
 
 .doctor-card {
-  border: 1px solid rgba(43, 43, 43, 0.1);
-  border-radius: 1rem;
-  padding: 1.25rem;
-  background: #fafafa;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-shadow-sm);
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.85rem;
+  transition: box-shadow 0.25s ease;
 }
 
 .doctor-header {
@@ -720,26 +939,28 @@
 }
 
 .doctor-info h3 {
-  margin: 0 0 0.25rem 0;
+  margin: 0 0 0.2rem 0;
   color: var(--charcoal);
   font-size: 1.2rem;
+  font-weight: 700;
 }
 
 .doctor-info p {
   margin: 0;
-  color: rgba(43, 43, 43, 0.7);
+  color: var(--charcoal-muted);
   font-size: 0.9rem;
+  font-weight: 500;
 }
 
-/* Toggle Switch Styling */
+/* iOS Style Glass Switch */
 .toggle-wrapper {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.85rem;
 }
 
 .toggle-label {
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   font-weight: 700;
   color: var(--charcoal);
 }
@@ -747,8 +968,8 @@
 .switch {
   position: relative;
   display: inline-block;
-  width: 48px;
-  height: 26px;
+  width: 52px;
+  height: 30px;
 }
 
 .switch input {
@@ -760,26 +981,26 @@
 .slider {
   position: absolute;
   cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: .3s ease;
-  border-radius: 26px;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .slider:before {
   position: absolute;
   content: "";
-  height: 20px;
-  width: 20px;
+  height: 22px;
+  width: 22px;
   left: 3px;
   bottom: 3px;
-  background-color: white;
-  transition: .3s ease;
+  background-color: #ffffff;
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 50%;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 }
 
 input:checked + .slider {
@@ -790,30 +1011,28 @@ input:checked + .slider:before {
   transform: translateX(22px);
 }
 
-/* Status Confirmation Text */
 .access-status-text {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--forest);
-  font-style: italic;
-  padding-top: 0.5rem;
-  border-top: 1px dashed rgba(43, 43, 43, 0.15);
+  font-weight: 500;
+  padding-top: 0.65rem;
+  border-top: 1px dashed rgba(0, 0, 0, 0.1);
 }
 
 .access-status-text.revoked {
   color: var(--berry);
 }
 
-/* Add Doctor Section */
 .add-doctor-section {
-  border-top: 2px solid rgba(43, 43, 43, 0.05);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
   padding-top: 1.5rem;
   margin-top: 1rem;
 }
 
 .add-doctor-form {
   margin-top: 1rem;
-  gap: 0.5rem;
+  gap: 0.75rem;
   flex-direction: column;
 }
 
@@ -822,74 +1041,38 @@ input:checked + .slider:before {
   animation: fadeIn 0.3s ease;
 }
 
-/* Button utility classes */
 .inline-btn {
   margin-top: 0;
-  padding: 0.85rem 1rem;
-}
-
-.auth-button.btn-forest {
-  background: var(--forest);
-  box-shadow: none;
-}
-
-.auth-button.btn-submitting {
-  opacity: 0.8;
-  pointer-events: none;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-5px); }
-  to { opacity: 1; transform: translateY(0); }
+  padding: 0.85rem 1.5rem;
 }
 
 /* =========================================================
-   SUGGESTION CENTER STYLES
+   SUGGESTION CENTER
    ========================================================= */
 
 .suggestion-container {
-  max-width: 600px;
+  max-width: 620px;
 }
 
-/* Extend existing form styles for select and textarea */
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  padding: 0.85rem 1rem;
-  border: 1.5px solid rgba(43, 43, 43, 0.15);
-  border-radius: 0.75rem;
-  background: #ffffff;
-  color: var(--charcoal);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 1rem;
-  outline: none;
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
-  resize: vertical;
-}
-
-.form-group select:focus,
-.form-group textarea:focus {
-  border-color: var(--forest);
-  box-shadow: 0 0 0 3px rgba(31, 107, 76, 0.12);
-}
-
-/* AI Suggestions List & Cards */
 .suggestion-list {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin-top: 1rem;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
 }
 
 .suggestion-card {
-  border: 1px solid rgba(43, 43, 43, 0.1);
-  border-radius: 1rem;
-  padding: 1.25rem;
-  background: #fafafa;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-shadow-sm);
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  transition: opacity 0.3s ease;
+  gap: 1.25rem;
+  transition: opacity 0.3s ease, transform 0.25s ease;
 }
 
 .suggestion-header {
@@ -902,48 +1085,48 @@ input:checked + .slider:before {
 .suggestion-text {
   margin: 0;
   color: var(--charcoal);
-  line-height: 1.5;
-  font-size: 0.95rem;
+  line-height: 1.6;
+  font-size: 0.98rem;
+  font-weight: 500;
 }
 
 .suggestion-actions {
   display: flex;
-  gap: 0.75rem;
+  gap: 0.85rem;
   flex-wrap: wrap;
 }
 
-/* Card Button Utilities */
 .btn-action {
   margin-top: 0;
   min-height: auto;
-  padding: 0.6rem 1.2rem;
-  font-size: 0.9rem;
-  box-shadow: none;
+  padding: 0.65rem 1.35rem;
+  font-size: 0.88rem;
+  font-weight: 700;
   width: auto;
 }
 
 .btn-outline-grey {
-  background: transparent;
-  border: 1.5px solid rgba(43, 43, 43, 0.2);
-  color: rgba(43, 43, 43, 0.7);
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  color: var(--charcoal-muted);
   box-shadow: none;
 }
 
 .btn-outline-grey:hover {
-  background: rgba(43, 43, 43, 0.05);
-  border-color: rgba(43, 43, 43, 0.4);
-  transform: none;
+  background: rgba(0, 0, 0, 0.09);
+  color: var(--charcoal);
+  transform: translateY(-1px);
 }
 
-/* Badge & States */
 .badge-approved {
   display: none;
   color: var(--forest);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 700;
-  padding: 0.25rem 0.6rem;
+  padding: 0.35rem 0.75rem;
   background: rgba(31, 107, 76, 0.12);
-  border-radius: 999px;
+  border: 1px solid rgba(31, 107, 76, 0.25);
+  border-radius: var(--radius-pill);
   white-space: nowrap;
 }
 
@@ -952,7 +1135,7 @@ input:checked + .slider:before {
 }
 
 .suggestion-card.is-approved .btn-action {
-  opacity: 0.5;
+  opacity: 0.45;
   pointer-events: none;
 }
 
@@ -960,36 +1143,39 @@ input:checked + .slider:before {
   display: none;
 }
 
-/* Custom Suggestion Section */
 .section-divider {
   border: none;
-  border-top: 1px dashed rgba(43, 43, 43, 0.15);
-  margin: 2rem 0;
+  border-top: 1px dashed rgba(0, 0, 0, 0.12);
+  margin: 2.25rem 0;
 }
 
 .custom-section h3,
 .sent-section h3 {
   margin: 0 0 1rem 0;
   color: var(--charcoal);
-  font-size: 1.25rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 .sent-section {
-  margin-top: 2rem;
+  margin-top: 2.25rem;
 }
 
 .sent-list {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.85rem;
 }
 
 .sent-card {
   border-left: 4px solid var(--coral);
-  padding: 1rem;
-  background: #ffffff;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 12px rgba(43, 43, 43, 0.05);
+  padding: 1.15rem;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: var(--radius-md);
+  box-shadow: var(--glass-shadow-sm);
   animation: fadeIn 0.3s ease;
 }
 
@@ -997,24 +1183,27 @@ input:checked + .slider:before {
   margin: 0;
   font-size: 0.95rem;
   color: var(--charcoal);
-  line-height: 1.5;
+  line-height: 1.55;
+  font-weight: 500;
 }
 
 /* =========================================================
-   CRAVING ALTERNATIVE STYLES
+   CRAVING ALTERNATIVE
    ========================================================= */
 
 .craving-container {
-  max-width: 500px;
+  max-width: 520px;
 }
 
-/* Result Card Formatting */
 .result-card {
-  margin-top: 1.5rem;
-  padding: 1.5rem;
-  background: #fafafa;
-  border: 1px solid rgba(43, 43, 43, 0.1);
-  border-radius: 1rem;
+  margin-top: 1.75rem;
+  padding: 1.75rem;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--glass-shadow-md);
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -1024,155 +1213,96 @@ input:checked + .slider:before {
 .result-header {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.35rem;
 }
 
 .result-title {
   margin: 0;
   color: var(--berry);
-  font-size: 1.3rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 .result-desc {
   margin: 0;
   color: var(--charcoal);
-  line-height: 1.5;
-  font-size: 0.95rem;
+  line-height: 1.6;
+  font-size: 0.98rem;
+  font-weight: 500;
 }
 
-/* Dietary Tag (Pill Shape) */
 .diet-tag {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   background: rgba(31, 107, 76, 0.12);
+  border: 1px solid rgba(31, 107, 76, 0.25);
   color: var(--forest);
-  padding: 0.4rem 0.85rem;
-  border-radius: 999px;
-  font-size: 0.8rem;
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
   font-weight: 700;
   align-self: flex-start;
   letter-spacing: 0.02em;
 }
 
 /* =========================================================
-   MOBILE RESPONSIVE PASS (320px - 600px)
-   ========================================================= */
-
-@media (max-width: 480px) {
-  .auth-page {
-    padding: 1rem 0.5rem;
-  }
-
-  .auth-card {
-    padding: 1.5rem 1rem;
-    border-radius: 1rem;
-  }
-
-  .auth-header h1 {
-    font-size: clamp(1.5rem, 6vw, 2rem);
-  }
-
-  /* Compact padding for all inner cards on mobile */
-  .dash-card, 
-  .patient-card, 
-  .doctor-card, 
-  .suggestion-card, 
-  .result-card, 
-  .inner-card {
-    padding: 1rem;
-  }
-
-  /* Stack quick actions and suggestion action buttons full-width */
-  .quick-actions, 
-  .suggestion-actions {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .quick-actions .auth-button, 
-  .suggestion-actions .auth-button, 
-  .btn-action {
-    width: 100%;
-  }
-
-  /* Ensure all inputs and buttons meet 44px+ touch targets */
-  .auth-button, 
-  input[type="text"], 
-  input[type="email"], 
-  input[type="password"], 
-  input[type="number"], 
-  input[type="date"], 
-  select, 
-  textarea {
-    min-height: 44px;
-  }
-}
-
-@media (max-width: 600px) {
-  /* Collapse multi-column grids below 600px */
-  .details-grid,
-  .dashboard-grid,
-  .role-options,
-  .flow-options {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* Stack patient summary card layouts on mobile */
-  .patient-summary {
-    flex-direction: column !important;
-    align-items: stretch !important;
-    gap: 1rem;
-  }
-
-  .patient-summary .action-btn {
-    width: 100%;
-  }
-}
-
-/* =========================================================
-   CYCLE TRACKER STYLES
+   CYCLE TRACKER
    ========================================================= */
 
 .symptoms-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-top: 0.25rem;
+  gap: 0.65rem;
+  margin-top: 0.35rem;
 }
 
 .symptom-tag {
-  padding: 0.5rem 1rem;
-  border: 1.5px solid rgba(43, 43, 43, 0.15);
-  border-radius: 999px;
-  background: #ffffff;
+  padding: 0.55rem 1.15rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: var(--charcoal);
-  font-size: 0.9rem;
+  font-size: 0.88rem;
+  font-weight: 600;
   cursor: pointer;
   user-select: none;
-  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  box-shadow: var(--glass-shadow-sm);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .symptom-tag:hover {
-  border-color: var(--forest);
+  border-color: rgba(31, 107, 76, 0.4);
+  background: rgba(255, 255, 255, 0.8);
+  transform: translateY(-1px);
 }
 
 .symptom-tag.selected {
   background: var(--forest);
   border-color: var(--forest);
   color: #ffffff;
+  box-shadow: 0 4px 16px var(--forest-glow);
 }
 
 .cycle-summary {
-  background: var(--cream);
-  padding: 1.25rem;
-  border-radius: 0.75rem;
-  border: 1px dashed rgba(43, 43, 43, 0.2);
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 1.35rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.8);
   margin-top: 0.5rem;
+  box-shadow: var(--glass-shadow-sm);
 }
 
 .cycle-summary p {
   margin: 0 0 0.5rem 0;
   font-size: 0.95rem;
-  color: var(--charcoal);
+  color: var(--charcoal-muted);
+  font-weight: 500;
 }
 
 .cycle-summary p:last-child {
@@ -1184,262 +1314,60 @@ input:checked + .slider:before {
   font-weight: 700;
 }
 
-/* Flow options: three items */
 .flow-options {
   grid-template-columns: repeat(3, 1fr);
 }
 
 /* =========================================================
-   DASHBOARD PAGES (patient + doctor)
+   ANIMATIONS & RESPONSIVE BREAKPOINTS
    ========================================================= */
 
-.dashboard-page {
-  min-height: 100vh;
-  background: var(--cream);
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
-/* ---------------------------------------------------------
-   NAV
-   --------------------------------------------------------- */
-
-.dashboard-nav {
-  background: #ffffff;
-  border-bottom: 1px solid rgba(43, 43, 43, 0.08);
-}
-
-.dashboard-nav__inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.1rem 0;
-}
-
-.dashboard-nav__brand {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--forest);
-}
-
-.dashboard-nav__links {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.dashboard-nav__links a {
-  color: var(--charcoal);
-  text-decoration: none;
-  font-weight: 700;
-}
-
-.dashboard-nav__links a:hover {
-  color: var(--forest);
-  text-decoration: underline;
-}
-
-/* ---------------------------------------------------------
-   MAIN / WELCOME
-   --------------------------------------------------------- */
-
-.dashboard-main {
-  padding: 2.5rem 0 4rem;
-}
-
-.dashboard-welcome {
-  margin: 0 0 0.4rem;
-  font-size: clamp(1.7rem, 4vw, 2.3rem);
-  color: var(--charcoal);
-}
-
-.dashboard-subtext {
-  margin: 0 0 1.75rem;
-  color: rgba(43, 43, 43, 0.7);
-}
-
-/* ---------------------------------------------------------
-   QUICK ACTIONS
-   --------------------------------------------------------- */
-
-.quick-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.85rem;
-  margin-bottom: 2.25rem;
-}
-
-.quick-action-btn {
-  width: auto;
-  min-height: auto;
-  padding: 0.85rem 1.5rem;
-  text-decoration: none;
-}
-
-/* ---------------------------------------------------------
-   PATIENT DASHBOARD GRID
-   --------------------------------------------------------- */
-
-.dashboard-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.25rem;
-}
-
-.dash-card {
-  background: #ffffff;
-  border-radius: 1.25rem;
-  padding: 1.4rem 1.5rem;
-  box-shadow: 0 12px 30px rgba(43, 43, 43, 0.08);
-}
-
-.dash-card h3 {
-  margin: 0 0 0.6rem;
-  color: var(--berry);
-  font-size: 1.05rem;
-}
-
-.dash-card__value {
-  margin: 0;
-  color: var(--charcoal);
-  line-height: 1.5;
-}
-
-.dash-card__link {
-  display: inline-block;
-  margin-top: 0.6rem;
-  color: var(--forest);
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.dash-card__link:hover {
-  text-decoration: underline;
-}
-
-.dash-card__status {
-  margin: 0 0 0.85rem;
-  color: rgba(43, 43, 43, 0.55);
-  font-style: italic;
-}
-
-.dash-card__connect-btn {
-  width: auto;
-  min-height: auto;
-  padding: 0.6rem 1.2rem;
-  font-size: 0.9rem;
-  box-shadow: none;
-}
-
-/* ---------------------------------------------------------
-   DOCTOR DASHBOARD — PATIENT LIST
-   --------------------------------------------------------- */
-
-.patient-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.1rem;
-}
-
-.patient-card {
-  background: #ffffff;
-  border-radius: 1.25rem;
-  padding: 1.4rem 1.6rem;
-  box-shadow: 0 12px 30px rgba(43, 43, 43, 0.08);
-}
-
-.patient-summary {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.patient-info {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-}
-
-.patient-info h3 {
-  margin: 0;
-  color: var(--charcoal);
-  font-size: 1.1rem;
-}
-
-.status-badge {
-  display: inline-block;
-  padding: 0.3rem 0.7rem;
-  border-radius: 999px;
-  font-size: 0.78rem;
-  font-weight: 700;
-  white-space: nowrap;
-}
-
-.status-badge--granted {
-  background: rgba(31, 107, 76, 0.12);
-  color: var(--forest);
-}
-
-.status-badge--awaiting {
-  background: rgba(43, 43, 43, 0.08);
-  color: rgba(43, 43, 43, 0.6);
-}
-
-.action-btn {
-  width: auto;
-  min-height: auto;
-  padding: 0.65rem 1.3rem;
-  font-size: 0.9rem;
-  box-shadow: none;
-}
-
-.action-btn:disabled {
-  background: rgba(43, 43, 43, 0.15);
-  color: rgba(43, 43, 43, 0.5);
-  cursor: not-allowed;
-  transform: none;
-}
-
-.patient-details {
-  margin-top: 1.25rem;
-  padding-top: 1.25rem;
-  border-top: 1px dashed rgba(43, 43, 43, 0.15);
-}
-
-.details-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 1rem;
-}
-
-.inner-card {
-  background: var(--cream);
-  border-radius: 0.85rem;
-  padding: 1rem;
-}
-
-.inner-card h4 {
-  margin: 0 0 0.3rem;
-  color: var(--berry);
-  font-size: 0.9rem;
-}
-
-.inner-card p {
-  margin: 0;
-  color: var(--charcoal);
-  font-size: 0.9rem;
-  line-height: 1.4;
-}
-
-/* ---------------------------------------------------------
-   MOBILE
-   --------------------------------------------------------- */
 
 @media (max-width: 600px) {
-  .patient-summary {
-    flex-direction: column;
-    align-items: stretch;
+  .details-grid,
+  .dashboard-grid,
+  .role-options,
+  .flow-options {
+    grid-template-columns: 1fr !important;
   }
 
-  .action-btn {
+  .patient-summary {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 1rem;
+  }
+
+  .patient-summary .action-btn {
     width: 100%;
+  }
+
+  .quick-actions,
+  .suggestion-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .quick-actions .auth-button,
+  .suggestion-actions .auth-button,
+  .btn-action {
+    width: 100%;
+  }
+
+  .onboarding-unit-field {
+    grid-template-columns: 1fr;
+  }
+
+  .onboarding-unit-toggle {
+    width: fit-content;
   }
 }
